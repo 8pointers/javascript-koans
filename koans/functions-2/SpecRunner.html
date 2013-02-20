@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Functions Koans Part 2</title>
+		<link rel="stylesheet" type="text/css" href="../../lib/jasmine-1.2.0/jasmine.css">
+		<link rel="stylesheet" type="text/css" href="../../lib/jskoans-jasmine/jskoans-jasmine.css">
+	</head>
+	<body>
+		<script type="text/javascript" src="../../lib/jasmine-1.2.0/jasmine.js"></script>
+		<script type="text/javascript" src="../../lib/jasmine-1.2.0/jasmine-html.js"></script>
+		<script type="text/javascript" src="../../lib/jquery.js"></script>
+		<script type="text/javascript" src="spec/1-closure.js"></script>
+		<script type="text/javascript" src="spec/2-module.js"></script>
+		<script type="text/javascript" src="spec/3-method-as-callback.js"></script>
+		<script type="text/javascript" src="src/4-partial-application.js"></script>
+		<script type="text/javascript" src="spec/4-partial-application.js"></script>
+		<script type="text/javascript" src="src/5-throttle.js"></script>
+		<script type="text/javascript" src="spec/5-throttle.js"></script>
+		<script type="text/javascript" src="src/6-global-namespace-pollution.js"></script>
+		<script type="text/javascript" src="spec/6-global-namespace-pollution.js"></script>
+		<script type="text/javascript" src="src/7-thread"></script>
+		<script type="text/javascript" src="spec/7-thread"></script>
+		<script type="text/javascript" src="src/9-game-of-life.js"></script>
+		<script type="text/javascript" src="spec/9-game-of-life.js"></script>
+		<div id='debug'>...</div>
+		<div id='counter'>...</div>
+		<input type='button' id='chipSelector1' value='Bet 1'></input>
+		<input type='button' id='chipSelector2' value='Bet 10'></input>
+		<input type='button' id='chipSelector3' value='Bet 100'></input>
+		<script type="text/javascript" src="../../lib/jasmine-1.2.0/main.js"></script>
+		<br />
+		This koan has 2 parts.
+		<br />
+		The goal of part one is to recap what we learned about functions.
+		You will have to go through spec/1.js and replace all the occurences of __ with the correct expected value.
+		When you've replaced all the __, run the test and make sure all the tests are passing.
+		<br />
+		The goal of part two is to revisit the Game of Life problem and implement the object that supports the following methods, but keeps everything else hidden:
+		<ul>
+			<li>addLiveCell(row, column)</li>
+			<li>isCellAlive(row, column)</li>
+			<li>tick()</li>
+		</ul>
+	</body>
+</html>

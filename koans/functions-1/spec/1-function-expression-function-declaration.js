@@ -19,7 +19,7 @@ describe('function expression and function declaration', function () {
 		expect(f()).toBe(__);
 	});
 	it('3 - should understand function declaration', function () {
-		//Try running this test in IE too
+		//Try running this test in IE too; note different behaviour
 		//Discuss with your pair
 		var f, result;
 		expect(typeof f).toBe(__);
@@ -36,7 +36,9 @@ describe('function expression and function declaration', function () {
 			result = 'error';
 		}
 		expect(result).toBe(__);
-		expect(f === g).toBe(__);
+		if (typeof g !== 'undefined') {
+			expect(f === g).toBe(__);
+		}
 	});
 	it('4 - should understand function declaration', function () {
 		//Try running this test in IE too
@@ -57,24 +59,27 @@ describe('function expression and function declaration', function () {
 			result = 'error';
 		}
 		expect(result).toBe(__);
-		expect(typeof(factorial)).toBe(__);
+		expect(typeof factorial).toBe(__);
 	});
 	it('6 - should understand the impact of anonymous functions on stack traces', function () {
 		var checkStackTrace1 = function () {
 			try {
 				throw '';
 			} catch (error) {
+				//debugger;//uncomment this line and run the test in Firefox; look at the call stack
 				return error;
 			}
-		}, checkStackTrace2 = function checkStackTrace() {
-			try {
-				throw '';
-			} catch (error) {
-				return error;
-			}
-		}, error1 = checkStackTrace1(),
-		error2 = checkStackTrace2();
-		//debugger;
+		},
+			checkStackTrace2 = function checkStackTrace() {
+				try {
+					throw '';
+				} catch (error) {
+					//debugger;//uncomment this line and run the test in Firefox; look at the call stack; compare to call stack from above
+					return error;
+				}
+			},
+			error1 = checkStackTrace1(),
+			error2 = checkStackTrace2();
 		expect(__).toBe(error1);
 		expect(__).toBe(error2);
 	});

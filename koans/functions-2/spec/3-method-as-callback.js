@@ -1,4 +1,7 @@
 describe('Functions - method as a callback', function () {
+	beforeEach(function () {
+		window.name = 'window name';
+	});
 	var createModel1 = function () {
 		var result = {
 			name: 'original name',
@@ -22,7 +25,7 @@ describe('Functions - method as a callback', function () {
 		var model = createModel1();
 		simulateAjax(model.setName);
 		expect(model.name).toBe(__);
-		expect(__).toBe('new name');
+		expect(window.name).toBe(__);
 	});
 	it('2 - should understand how to manually enforce scope', function () {
 		var model = createModel1();
@@ -30,19 +33,19 @@ describe('Functions - method as a callback', function () {
 			model.setName(name);
 		});
 		expect(model.name).toBe(__);
-		expect(__).toBe('new name');
+		expect(window.name).toBe(__);
 	});
 	it('3 - should understand how to use bind to enforce scope', function () {
 		var model = createModel1();
 		simulateAjax(model.setName.bind(model));
 		expect(model.name).toBe(__);
-		expect(__).toBe('new name');
+		expect(window.name).toBe(__);
 	});
 	it('4 - should understand the consequences of not using this keyword to access own properties', function () {
 		var model = createModel2();
 		simulateAjax(model.setName);
 		expect(model.name).toBe(__);
-		expect(__).toBe('new name');
+		expect(window.name).toBe(__);
 	});
 	/*
 	discuss with your pair:

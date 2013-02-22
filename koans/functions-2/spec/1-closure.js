@@ -14,7 +14,7 @@ describe('Warmup - timers and asynchronous specs', function () {
 		runs(function () {
 			expect(i).toBe(__);
 		});
-		waits(110);
+		waits(20);
 		runs(function () {
 			expect(i).toBe(__);
 		});

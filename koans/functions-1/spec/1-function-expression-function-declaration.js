@@ -19,7 +19,7 @@ describe('function expression and function declaration', function () {
 		expect(f()).toBe(__);
 	});
 	it('3 - should understand function declaration', function () {
-		//Try running this test in IE too; note different behaviour
+		//Try running this test in IE 6-7 too; note different behaviour
 		//Discuss with your pair
 		var f, result;
 		expect(typeof f).toBe(__);
@@ -41,7 +41,7 @@ describe('function expression and function declaration', function () {
 		}
 	});
 	it('4 - should understand function declaration', function () {
-		//Try running this test in IE too
+		//Try running this test in IE 6-7 too
 		//Discuss with your pair
 		var result = 1;
 		if (function f() {}) {
@@ -62,25 +62,11 @@ describe('function expression and function declaration', function () {
 		expect(typeof factorial).toBe(__);
 	});
 	it('6 - should understand the impact of anonymous functions on stack traces', function () {
-		var checkStackTrace1 = function () {
-			try {
-				throw '';
-			} catch (error) {
-				//debugger;//uncomment this line and run the test in Firefox; look at the call stack
-				return error;
-			}
-		},
-			checkStackTrace2 = function checkStackTrace() {
-				try {
-					throw '';
-				} catch (error) {
-					//debugger;//uncomment this line and run the test in Firefox; look at the call stack; compare to call stack from above
-					return error;
-				}
-			},
-			error1 = checkStackTrace1(),
-			error2 = checkStackTrace2();
-		expect(error1).toBe(__);
-		expect(error2).toBe(__);
+		//uncomment the line below and run the test; check the call stack
+		//debugger;
+	});
+	it('7 - should understand the impact of anonymous functions on stack traces', function noLongerAnonymousFunction() {
+		//uncomment the line below and run the test; check the call stack; compare with previous one
+		//debugger;
 	});
 });

@@ -37,8 +37,8 @@ describe('Mutator methods', function () {
 	});
 	it('5 - should understand splice', function () {
 		var array = [1, 2, 3, 4, 5];
-		expect(__).toEqual(array.splice(1, 2));
-		expect(__).toEqual(array);
+		expect(array.splice(1, 2)).toEqual(__);
+		expect(array).toEqual(__);
 	});
 	it('6 - should understand splice', function () {
 		var array = [1, 2, 3, 4, 5];

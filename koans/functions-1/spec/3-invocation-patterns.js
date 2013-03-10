@@ -119,9 +119,9 @@ describe('Invocation patterns', function () {
 				storeThis: storeThis
 			}, samurai3 = {};
 			samurai.storeThis.call(samurai2);
-			expect(__).toBe(storedThis);
+			expect(storedThis).toBe(__);
 			samurai.storeThis.apply(samurai3, []);
-			expect(__).toBe(storedThis);
+			expect(storedThis).toBe(__);
 		});
 	});
 
@@ -130,6 +130,6 @@ describe('Invocation patterns', function () {
 		It's commented out because it is (in some browsers) a long running-test.
 	*/
 	it('12 - should understand invocation patterns', function () {
-		//expect(__).toBe(this);//what have you expected to happen here? what happened and why? discuss with your pair!
+		//expect(this).toBe(__);//what have you expected to happen here? what happened and why? discuss with your pair!
 	});
 });

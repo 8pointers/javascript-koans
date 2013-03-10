@@ -5,8 +5,8 @@ describe('function parameters', function () {
 		var inc = function (first, second) {
 			return first + (second || 1);
 		};
-		expect(__).toBe(inc(100, 23));
-		expect(__).toBe(inc(100));
+		expect(inc(100, 23)).toBe(__);
+		expect(inc(100)).toBe(__);
 		// for bonus points - can you think of a case when inc would behave in an unexpected way?
 		// if yes - write a test to prove it, and then fix the problem.
 	});
@@ -21,8 +21,8 @@ describe('function parameters', function () {
 		var dec = function () {
 			return arguments[0] - (arguments[1] || 1);
 		};
-		expect(__).toBe(dec(123, 23));
-		expect(__).toBe(dec(101));
+		expect(dec(123, 23)).toBe(__);
+		expect(dec(101)).toBe(__);
 	});
 	it('4 - should understand implicit parameter \'arguments\'', function () {
 		var f = function (first, second, third) {
@@ -53,14 +53,14 @@ describe('function parameters', function () {
 				throw 'incorrect number of parameters';
 			}
 		}, result;
-		expect(__).toBe(f(3));
-		expect(__).toBe(f(2, 3));
+		expect(f(3)).toBe(__);
+		expect(f(2, 3)).toBe(__);
 		try {
 			result = f(2, 3, undefined);
 		} catch (error) {
 			result = 'error';
 		}
-		expect(__).toBe(result);
+		expect(result).toBe(__);
 	});
 	it('8 - should understand function length', function () {
 		var f = function (first, second) {

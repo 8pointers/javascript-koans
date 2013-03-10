@@ -80,7 +80,7 @@ describe('function expression and function declaration', function () {
 			},
 			error1 = checkStackTrace1(),
 			error2 = checkStackTrace2();
-		expect(__).toBe(error1);
-		expect(__).toBe(error2);
+		expect(error1).toBe(__);
+		expect(error2).toBe(__);
 	});
 });

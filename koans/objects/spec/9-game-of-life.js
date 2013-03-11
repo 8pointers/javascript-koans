@@ -1,5 +1,5 @@
 /*jslint nomen: true*/
-/*global beforeEach, describe, expect, isCellAliveInNextGeneration, it, SAMURAIPRINCIPLE, __*/
+/*global describe, expect, it, SAMURAIPRINCIPLE*/
 describe('Game of Life', function () {
 	describe('Determining whether cell is alive in next generation', function () {
 		it('should return false when a live cell has fewer than two live neighbours - under-population', function () {

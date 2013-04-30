@@ -33,6 +33,7 @@ describe('Arrays - iteration methods', function () {
 			if (!this[element]) {
 				result += element;
 			}
+			this[element] = true;
 		}, {});
 		expect(result).toBe(__);
 	});

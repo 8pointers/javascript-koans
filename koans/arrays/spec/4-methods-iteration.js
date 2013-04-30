@@ -10,7 +10,13 @@ describe('Arrays - iteration methods', function () {
 	it('2 - should understand filter with this', function () {
 		var array = [1, 2, 3, 4, 5, 4, 3, 2, 1], THIS = {};
 		expect(array.filter(function (element, index, array) {
-			return this[element] ? false : this[element] = true;
+			if (this[element]) {
+				return false;
+			} else {
+				this[element] = true;
+				return true;
+			}
+			//return this[element] ? false : this[element] = true;
 		}, THIS)).toEqual(__);
 		expect(THIS).toEqual(__);
 	});

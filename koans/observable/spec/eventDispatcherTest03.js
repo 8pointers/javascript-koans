@@ -1,4 +1,4 @@
-/*global beforeEach, describe, expect, it, jasmine, SAMURAIPRINCIPLE */
+/*global describe, expect, it, jasmine, SAMURAIPRINCIPLE */
 describe('eventDispatcher', function () {
 	'use strict';
 	it('should use dispatchEvent to invoke registered listener', function () {

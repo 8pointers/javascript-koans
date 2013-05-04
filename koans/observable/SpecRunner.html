@@ -2,22 +2,60 @@
 <html>
 	<head>
 		<title>Observable</title>
-		<link rel="stylesheet" type="text/css" href="../../lib/jasmine-1.2.0/jasmine.css">
-		<link rel="stylesheet" type="text/css" href="../../lib/jskoans-jasmine/jskoans-jasmine.css">
+		<link rel="stylesheet" type="text/css" href="../../lib/jasmine-1.3.1/jasmine.css">
+		<style>
+			td {
+				background-color: #E0C020;
+				width: 16px;
+				height: 16px;
+			}
+			td.alive {
+				background-color: #4040C0;
+			}
+		</style>
 	</head>
 	<body>
-		<script type="text/javascript" src="../../lib/jasmine-1.2.0/jasmine.js"></script>
-		<script type="text/javascript" src="../../lib/jasmine-1.2.0/jasmine-html.js"></script>
-		<script type="text/javascript" src="src/eventDispatcher.js"></script>
-		<script type="text/javascript" src="spec/eventDispatcherTest01.js"></script>
-		<script type="text/javascript" src="spec/eventDispatcherTest02.js"></script>
-		<script type="text/javascript" src="spec/eventDispatcherTest03.js"></script>
-		<script type="text/javascript" src="spec/eventDispatcherTest04.js"></script>
-		<script type="text/javascript" src="spec/eventDispatcherTest05.js"></script>
-		<script type="text/javascript" src="spec/eventDispatcherTest06.js"></script>
-		<script type="text/javascript" src="spec/eventDispatcherTest07.js"></script>
-		<script type="text/javascript" src="spec/eventDispatcherTest08.js"></script>
-		<script type="text/javascript" src="spec/eventDispatcherTest10.js"></script>
-		<script type="text/javascript" src="../../lib/jasmine-1.2.0/main.js"></script>
+		<script src="../../lib/jquery-1.9.1.js"></script>
+		<script src="../../lib/jquery-ui-1.10.3.custom.js"></script>
+		<script src="../../lib/jasmine-1.3.1/jasmine.js"></script>
+		<script src="../../lib/jasmine-1.3.1/jasmine-html.js"></script>
+		<script src="src/eventDispatcher.js"></script>
+		<script src="src/game-of-life.js"></script>
+		<script src="../dont-peek/observable/eventDispatcher.js"></script>
+		<script src="../dont-peek/oop/game-of-life.js"></script>
+		<script src="../dont-peek/observable/game-of-life.js"></script>
+		<script src="spec/eventDispatcherTest01.js"></script>
+		<script src="spec/eventDispatcherTest02.js"></script>
+		<script src="spec/eventDispatcherTest03.js"></script>
+		<script src="spec/eventDispatcherTest04.js"></script>
+		<script src="spec/eventDispatcherTest05.js"></script>
+		<script src="spec/eventDispatcherTest06.js"></script>
+		<script src="spec/eventDispatcherTest07.js"></script>
+		<script src="spec/eventDispatcherTest08.js"></script>
+		<script src="spec/eventDispatcherTest10.js"></script>
+		<script src="spec/game-of-life.js"></script>
+		<script src="../../lib/jasmine-1.3.1/main.js"></script>
+		<div id='gameOfLifeWidget'>
+			<table class='grid'>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			</table>
+			<input type='button' class='tick' value='tick'></input>
+		</div>
+		<script>
+			jQuery(function () {
+				var gameOfLife = new SAMURAIPRINCIPLE.GameOfLife();
+				jQuery('#gameOfLifeWidget').gameOfLifeWidget(gameOfLife, 10, 10);
+
+			});
+		</script>
 	</body>
 </html>

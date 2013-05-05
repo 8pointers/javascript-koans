@@ -1,5 +1,5 @@
 /*jslint nomen: true*/
-/*global beforeEach, describe, expect, it, window, __*/
+/*global describe, expect, it, __*/
 describe('function expression and function declaration', function () {
 	it('1 - should understand function expression', function () {
 		expect(typeof f).toBe(__);

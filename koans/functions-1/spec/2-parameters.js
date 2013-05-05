@@ -1,5 +1,5 @@
 /*jslint nomen: true*/
-/*global beforeEach, describe, expect, it, window, __*/
+/*global describe, expect, it, __*/
 describe('function parameters', function () {
 	it('1 - should understand how parameters are passed in javascript', function () {
 		var inc = function (first, second) {

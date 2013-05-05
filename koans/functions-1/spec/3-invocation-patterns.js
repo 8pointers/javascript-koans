@@ -1,5 +1,5 @@
 /*jslint nomen: true*/
-/*global beforeEach, describe, expect, it, window, __*/
+/*global beforeEach, describe, expect, it, __*/
 describe('Invocation patterns', function () {
 	var storedThis, storeThis, samurai;
 	beforeEach(function () {

@@ -1,5 +1,5 @@
 /*jslint nomen: true*/
-/*global beforeEach, describe, expect, it, __*/
+/*global describe, expect, it, jQuery, runs, waits, __*/
 describe('Warmup - timers and asynchronous specs', function () {
 	/*
 		tip: if change describe into xdescribe the suite will no longer be executed
@@ -52,12 +52,13 @@ describe('Warmup - timers and asynchronous specs', function () {
 		setTimeout(function () {
 			i = 1;
 		}, 300);
-		while (new Date().getTime() <= loopDueTime);
+		while (new Date().getTime() <= loopDueTime) {
+		}
 		expect(i).toBe(__);
 		waits(0);
 		runs(function () {
 			expect(i).toBe(__);
-		})
+		});
 		expect(i).toBe(__);
 	});
 });

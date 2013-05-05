@@ -1,3 +1,4 @@
+/*global beforeEach, describe, expect, it, __*/
 describe('Functions - method as a callback', function () {
 	beforeEach(function () {
 		window.name = 'window name';

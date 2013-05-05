@@ -1,3 +1,4 @@
+/*global describe, expect, it*/
 //refactor this so that object with mapping is not created every time (i.e. it is created at most once)
 //however, make sure nothing else goes into global namespace (except colorLookup function)
 var colorLookup = function (colorString) {

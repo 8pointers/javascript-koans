@@ -1,5 +1,5 @@
 /*jslint nomen: true*/
-/*global beforeEach, describe, expect, it, window, __*/
+/*global describe, expect, it, __*/
 describe('return', function () {
 	it('1 - should understand return', function () {
 		var Samurai = function (name) {

@@ -1,5 +1,5 @@
 /*jslint nomen: true*/
-/*global beforeEach, describe, expect, it, __*/
+/*global describe, expect, it, __*/
 describe('Enumerating properties', function () {
 	'use strict';
 	it('1 - should understand for-in loop', function () {

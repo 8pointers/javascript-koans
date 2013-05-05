@@ -1,5 +1,4 @@
-/*jslint nomen: true*/
-/*global beforeEach, describe, expect, it, __*/
+/*global describe, expect, it, __*/
 describe('Arrays - generic methods', function () {
 	it('1 - should understand join is a generic method', function () {
 		expect(Array.prototype.join.call('Hello', '.')).toBe(__);

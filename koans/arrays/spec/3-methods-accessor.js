@@ -1,5 +1,4 @@
-/*jslint nomen: true*/
-/*global beforeEach, describe, expect, it, __*/
+/*global describe, expect, it, __*/
 describe('Arrays - accessor methods', function () {
 	it('1 - should understand concat', function () {
 		var first = [1, 2, 3], second = [4, 5, 6];

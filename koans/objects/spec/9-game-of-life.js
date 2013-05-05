@@ -1,4 +1,3 @@
-/*jslint nomen: true*/
 /*global describe, expect, it, SAMURAIPRINCIPLE*/
 describe('Game of Life', function () {
 	describe('Determining whether cell is alive in next generation', function () {

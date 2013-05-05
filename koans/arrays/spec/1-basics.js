@@ -8,7 +8,7 @@ describe('Arrays - basics', function () {
 		array = [1, 2, 3];
 	});
 	it('1 - should understand array literals', function () {
-		var array = [1, "2", [3], false], returnArguments, args;
+		var array = [1, '2', [3], false], returnArguments, args;
 		expect(isArray(array)).toBe(__);
 		expect(isArray(array[0])).toBe(__);
 		expect(isArray(array[1])).toBe(__);

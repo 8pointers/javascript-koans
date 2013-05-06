@@ -1,7 +1,7 @@
-JavaScript-Koans
+JavaScript Koans
 ================
 
-JavaScript Koans
+JavaScript Koans - exercises for my JavaScript workshop.
 
 - Jasmine
 - Objects

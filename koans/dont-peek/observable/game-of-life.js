@@ -13,7 +13,7 @@
 		};
 	};
 }());
-jQuery.fn.gameOfLifeWidget = function (gameOfLife, rows, columns) {
+jQuery.fn.gameOfLifeWidget = function (gameOfLife, rows, columns, animationDuration) {
 	'use strict';
 	return this.each(function () {
 		var self = jQuery(this);
@@ -22,7 +22,7 @@ jQuery.fn.gameOfLifeWidget = function (gameOfLife, rows, columns) {
 			jQuery(this).click(gameOfLife.toggleCellState.bind(gameOfLife, Math.floor(index / columns), index % columns));
 		});
 		gameOfLife.addEventListener('cellStateChanged', function (row, column) {
-			self.find('tr:nth-child(' + (row + 1) + ') td:nth-child(' + (column + 1) + ')').toggleClass('alive', 250);
+			self.find('tr:nth-child(' + (row + 1) + ') td:nth-child(' + (column + 1) + ')').toggleClass('alive', animationDuration);
 		});
 	});
 };

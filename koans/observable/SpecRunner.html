@@ -19,6 +19,7 @@
 		<script src="../../lib/jquery-ui-1.10.3.custom.js"></script>
 		<script src="../../lib/jasmine-1.3.1/jasmine.js"></script>
 		<script src="../../lib/jasmine-1.3.1/jasmine-html.js"></script>
+		<script src="../../lib/sinon-1.6.0.js"></script>
 		<script src="src/eventDispatcher.js"></script>
 		<script src="src/game-of-life.js"></script>
 		<script src="../dont-peek/observable/eventDispatcher.js"></script>
@@ -53,8 +54,7 @@
 		<script>
 			jQuery(function () {
 				var gameOfLife = new SAMURAIPRINCIPLE.GameOfLife();
-				jQuery('#gameOfLifeWidget').gameOfLifeWidget(gameOfLife, 10, 10);
-
+				jQuery('#gameOfLifeWidget').gameOfLifeWidget(gameOfLife, 10, 10, 250);
 			});
 		</script>
 	</body>

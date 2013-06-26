@@ -1,7 +1,8 @@
-/*global beforeEach, describe, expect, it, jasmine, SAMURAIPRINCIPLE */
+/*global describe, expect, it, SAMURAIPRINCIPLE */
 describe('eventDispatcher', function () {
 	'use strict';
-	it('should be able to specify the order in which listeners are invoked, by setting priority', function () {
+	it('should be able to specify the order in which listeners are invoked,\
+		by setting priority', function () {
 		var underTest = SAMURAIPRINCIPLE.eventDispatcher({}),
 			result = ':',
 			lowPriorityListener = function () { result += 'first:'; },

@@ -1,7 +1,8 @@
 /*global beforeEach, describe, expect, it, jasmine, SAMURAIPRINCIPLE */
 describe('eventDispatcher', function () {
 	'use strict';
-	it('should be able to cancel event propagation by returning false from event listener', function () {
+	it('should be able to cancel event propagation
+		by returning false from event listener', function () {
 		var underTest = SAMURAIPRINCIPLE.eventDispatcher({}),
 			firstListener = jasmine.createSpy().andReturn(false),
 			secondListener = jasmine.createSpy();

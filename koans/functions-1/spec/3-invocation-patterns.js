@@ -48,20 +48,20 @@ describe('Invocation patterns', function () {
 			expect(result).toBe(__);
 		});
 		it('6 - should understand function invocation pattern', function () {
-			var myaMethod = samurai.aMethod;
+			var myMethod = samurai.aMethod;
 			aFunction();
 			expect(storedThis).toBe(__);
 			samurai.aMethod();
 			expect(storedThis).toBe(__);
-			myaMethod();
+			myMethod();
 			expect(storedThis).toBe(__);
 		});
 		it('7 - should understand strict mode', function () {
-			var storedThis, strictaMethod = function () {
+			var storedThis, strictMethod = function () {
 				'use strict';
 				storedThis = this;
 			};
-			strictaMethod();
+			strictMethod();
 			expect(storedThis).toBe(__);
 		});
 	});

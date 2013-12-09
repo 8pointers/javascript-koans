@@ -1,43 +1,43 @@
 /*jslint nomen: true*/
 /*global beforeEach, describe, expect, it, __*/
 describe('Invocation patterns', function () {
-	var storedThis, storeThis, samurai;
+	var storedThis, aFunction, samurai;
 	beforeEach(function () {
 		storedThis = undefined;
-		storeThis = function () {
+		aFunction = function () {
 			storedThis = this;
 		};
 		samurai = {
-			storeThis: storeThis
+			aMethod: aFunction
 		};
 	});
 	describe('method', function () {
 		it('1 - should understand method invocation pattern', function () {
-			samurai.storeThis();
+			samurai.aMethod();
 			expect(storedThis).toBe(__);
 		});
 		it('2 - should understand method invocation pattern', function () {
 			var samurai2 = {
-				storeThis: samurai.storeThis
+				aMethod: samurai.aMethod
 			};
-			samurai2.storeThis();
+			samurai2.aMethod();
 			expect(storedThis).toBe(__);
 		});
 		it('3 - should understand method invocation pattern', function () {
 			var samurai2 = {
 				samurai: samurai,
-				storeThis: samurai.storeThis
+				aMethod: samurai.aMethod
 			};
-			samurai2.samurai.storeThis();
+			samurai2.samurai.aMethod();
 			expect(storedThis).toBe(__);
-			samurai2.storeThis();
+			samurai2.aMethod();
 			expect(storedThis).toBe(__);
 		});
 	});
 
 	describe('function', function () {
 		it('4 - should understand function invocation pattern', function () {
-			storeThis();
+			aFunction();
 			expect(storedThis).toBe(__);
 		});
 		it('5 - should understand function invocation pattern', function () {
@@ -48,34 +48,34 @@ describe('Invocation patterns', function () {
 			expect(result).toBe(__);
 		});
 		it('6 - should understand function invocation pattern', function () {
-			var myStoreThis = samurai.storeThis;
-			storeThis();
+			var myaMethod = samurai.aMethod;
+			aFunction();
 			expect(storedThis).toBe(__);
-			samurai.storeThis();
+			samurai.aMethod();
 			expect(storedThis).toBe(__);
-			myStoreThis();
+			myaMethod();
 			expect(storedThis).toBe(__);
 		});
 		it('7 - should understand strict mode', function () {
-			var storedThis, strictStoreThis = function () {
+			var storedThis, strictaMethod = function () {
 				'use strict';
 				storedThis = this;
 			};
-			strictStoreThis();
+			strictaMethod();
 			expect(storedThis).toBe(__);
 		});
 	});
 
 	describe('constructor', function () {
 		it('8 - should understand constructor invocation pattern', function () {
-			var Constructor1 = storeThis, Constructor2 = samurai.storeThis, s1, s2, s3, s4;
+			var Constructor1 = aFunction, Constructor2 = samurai.aMethod, s1, s2, s3, s4;
 			s1 = new Constructor1();
 			expect(storedThis).toBe(__);
 			s2 = new Constructor2();
 			expect(storedThis).toBe(__);
-			s3 = new storeThis();
+			s3 = new aFunction();
 			expect(storedThis).toBe(__);
-			s4 = new samurai.storeThis();
+			s4 = new samurai.aMethod();
 			expect(storedThis).toBe(__);
 		});
 		it('9 - should understand constructor invocation pattern', function () {
@@ -116,11 +116,11 @@ describe('Invocation patterns', function () {
 	describe('call/apply', function () {
 		it('11 - should understand call-apply invocation pattern', function () {
 			var samurai2 = {
-				storeThis: storeThis
+				aMethod: aFunction
 			}, samurai3 = {};
-			samurai.storeThis.call(samurai2);
+			samurai.aMethod.call(samurai2);
 			expect(storedThis).toBe(__);
-			samurai.storeThis.apply(samurai3, []);
+			samurai.aMethod.apply(samurai3, []);
 			expect(storedThis).toBe(__);
 		});
 	});

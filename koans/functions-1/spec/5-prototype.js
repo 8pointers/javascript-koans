@@ -9,6 +9,7 @@ describe('prototype', function () {
 		};
 		instance = new Person();
 		expect(instance.name).toBe(__);
+		expect(Person.prototype.isPrototypeOf(instance)).toBe(__);
 	});
 	it('2 - should understand prototype', function () {
 		var Person = function () {
@@ -18,6 +19,7 @@ describe('prototype', function () {
 			name: 'default name'
 		};
 		expect(instance.name).toBe(__);
+		expect(Person.prototype.isPrototypeOf(instance)).toBe(__);
 	});
 	it('3 - should understand prototype', function () {
 		var Person = function () {
@@ -38,6 +40,10 @@ describe('prototype', function () {
 		expect(firstInstance.name).toBe(__);
 		expect(secondInstance.name).toBe(__);
 		expect(thirdInstance.name).toBe(__);
+		
+		expect(Person.prototype.isPrototypeOf(firstInstance)).toBe(__);
+		expect(Person.prototype.isPrototypeOf(secondInstance)).toBe(__);
+		expect(Person.prototype.isPrototypeOf(thirdInstance)).toBe(__);
 	});
 	it('4 - should understand prototype & delete', function () {
 		var Person = function () {

@@ -1,25 +1,31 @@
 /*jslint nomen: true*/
-/*global describe, expect, it, jQuery, runs, waits, __*/
+/*global console, describe, expect, it, jQuery, runs, setTimeout, waits, __*/
 describe('Warmup - timers and asynchronous specs', function () {
+	'use strict';
 	/*
 		tip: if change describe into xdescribe the suite will no longer be executed
 		you may wish to do that when you move onto the second part of the assignement (because this is a long running suite)
 	*/
+	it('0 - should understand why we need asynchronous specs (so that this spec doesnt just pass)', function () {
+		setTimeout(function () {
+			expect(1).toBe(2);
+		}, 100);
+	});
 	it('1 - should understand timers', function () {
 		var i = 0, t0 = Date.now();
 		setTimeout(function () {
 			i = 1;
 			console.log(7, i, Date.now() - t0);
-		}, 100);
+		}, 200);
 		console.log(1, i, Date.now() - t0);
-		waits(90);
+		waits(100);
 		console.log(2, i, Date.now() - t0);
 		runs(function () {
 			expect(i).toBe(__);
 			console.log(6, i, Date.now() - t0);
 		});
 		console.log(3, i, Date.now() - t0);
-		waits(20);
+		waits(200);
 		console.log(4, i, Date.now() - t0);
 		runs(function () {
 			expect(i).toBe(__);
@@ -63,13 +69,14 @@ describe('Warmup - timers and asynchronous specs', function () {
 	});
 });
 describe('Closure', function () {
+	'use strict';
 	it('1 - should understand loop and closure', function () {
 		var i, debugElement = jQuery('#debug');
 		debugElement.text('');
-		for (i = 0; i < 3; i++) {
+		for (i = 0; i < 3; i += 1) {
 			setTimeout(function () {
 				debugElement.append(i);
-			}, 1000 * i);
+			}, 1000 * (i + 1));
 		}
 		waits(4000);
 		runs(function () {

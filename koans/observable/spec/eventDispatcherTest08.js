@@ -3,7 +3,7 @@ describe('eventDispatcher', function () {
 	'use strict';
 	it('should be able to cancel event propagation by returning false from event listener', function () {
 		var underTest = SAMURAIPRINCIPLE.eventDispatcher({}),
-			firstListener = jasmine.createSpy().andReturn(false),
+			firstListener = jasmine.createSpy().and.returnValue(false),
 			secondListener = jasmine.createSpy();
 		underTest.addEventListener('EventType', firstListener);
 		underTest.addEventListener('EventType', secondListener);

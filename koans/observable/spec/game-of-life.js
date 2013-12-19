@@ -49,16 +49,16 @@ describe('Game of Life Widget', function () {
 
 		expect(widget.find('.grid tr:nth-child(4) td:nth-child(5)').hasClass('alive')).toBe(false);
 	});
-	it('should animate cell state changes if animation duration parameter is passed', function () {
+	it('should animate cell state changes if animation duration parameter is passed', function (done) {
 		widget = jQuery('#gameOfLifeWidget').clone().appendTo('body').gameOfLifeWidget(gameOfLife, 10, 10, 250);
 
 		gameOfLife.dispatchEvent('cellStateChanged', 3, 4);
 
 		expect(widget.find('.grid tr:nth-child(4) td:nth-child(5)').hasClass('alive')).toBe(false);
-		waits(260);
-		runs(function () {
+		setTimeout(function () {
 			expect(widget.find('.grid tr:nth-child(4) td:nth-child(5)').hasClass('alive')).toBe(true);
-		});
+			done();
+		}, 300);
 	});
 	describe('Game of Life Widget', function () {
 		var clock;

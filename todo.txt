@@ -1,4 +1,3 @@
-- add hint .isPrototypeOf in 5-prototype.js
 - console.log gotcha in chrome (stringify)
 - phantom (ci)
 

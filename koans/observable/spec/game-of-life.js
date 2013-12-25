@@ -50,6 +50,7 @@ describe('Game of Life Widget', function () {
 		expect(widget.find('.grid tr:nth-child(4) td:nth-child(5)').hasClass('alive')).toBe(false);
 	});
 	it('should animate cell state changes if animation duration parameter is passed', function (done) {
+		gameOfLife = SAMURAIPRINCIPLE.eventDispatcher(jasmine.createSpyObj('gameOfLife', ['tick', 'toggleCellState']));
 		widget = jQuery('#gameOfLifeWidget').clone().appendTo('body').gameOfLifeWidget(gameOfLife, 10, 10, 250);
 
 		gameOfLife.dispatchEvent('cellStateChanged', 3, 4);
@@ -60,23 +61,25 @@ describe('Game of Life Widget', function () {
 			done();
 		}, 300);
 	});
-	describe('Game of Life Widget', function () {
-		var clock;
-		beforeEach(function () {
-			clock = sinon.useFakeTimers();
-		});
-		afterEach(function () {
-			clock.restore();
-		});
-		it('should animate cell state changes if animation duration parameter is passed (welcome sinon.js)', function () {
-			widget = jQuery('#gameOfLifeWidget').clone().appendTo('body').gameOfLifeWidget(gameOfLife, 10, 10, 250);
+});
+describe('Game of Life Widget', function () {
+	var clock;
+	beforeEach(function () {
+		clock = sinon.useFakeTimers();
+	});
+	afterEach(function () {
+		clock.restore();
+	});
+	it('should animate cell state changes if animation duration parameter is passed (welcome sinon.js)', function () {
+		var gameOfLife, widget;
+		gameOfLife = SAMURAIPRINCIPLE.eventDispatcher(jasmine.createSpyObj('gameOfLife', ['tick', 'toggleCellState']));
+		widget = jQuery('#gameOfLifeWidget').clone().appendTo('body').gameOfLifeWidget(gameOfLife, 10, 10, 250);
 
-			gameOfLife.dispatchEvent('cellStateChanged', 3, 4);
+		gameOfLife.dispatchEvent('cellStateChanged', 3, 4);
 
-			clock.tick(200);
-			expect(widget.find('.grid tr:nth-child(4) td:nth-child(5)').hasClass('alive')).toBe(false);
-			clock.tick(260);
-			expect(widget.find('.grid tr:nth-child(4) td:nth-child(5)').hasClass('alive')).toBe(true);
-		});
+		clock.tick(200);
+		expect(widget.find('.grid tr:nth-child(4) td:nth-child(5)').hasClass('alive')).toBe(false);
+		clock.tick(260);
+		expect(widget.find('.grid tr:nth-child(4) td:nth-child(5)').hasClass('alive')).toBe(true);
 	});
 });

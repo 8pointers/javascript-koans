@@ -25,7 +25,10 @@ describe('Arrays - basics', function () {
 			return arguments;
 		}, args;
 		args = returnArguments(1, 2, 3);
-		expect(args).toEqual(__);
+		expect(args[0]).toEqual(__);
+		expect(args[1]).toEqual(__);
+		expect(args[2]).toEqual(__);
+		expect(args.length).toEqual(__);
 		expect(isArray(args)).toBe(__);
 	});
 	it('3 - should understand [] operator', function () {

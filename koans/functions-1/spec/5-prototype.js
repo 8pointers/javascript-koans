@@ -40,7 +40,7 @@ describe('prototype', function () {
 		expect(firstInstance.name).toBe(__);
 		expect(secondInstance.name).toBe(__);
 		expect(thirdInstance.name).toBe(__);
-		
+
 		expect(Person.prototype.isPrototypeOf(firstInstance)).toBe(__);
 		expect(Person.prototype.isPrototypeOf(secondInstance)).toBe(__);
 		expect(Person.prototype.isPrototypeOf(thirdInstance)).toBe(__);
@@ -53,5 +53,37 @@ describe('prototype', function () {
 		expect(instance.name).toBe(__);
 		delete Person.prototype.name;
 		expect(instance.name).toBe(__);
+	});
+	it('5 - should understand prototype', function () {
+		var Person = function () {
+		}, firstInstance, secondInstance;
+		Person.prototype.name = 'default name';
+		Person.prototype.address = {
+			street: 'Kosovska 51',
+			postcode: '11000'
+		};
+		firstInstance = new Person();
+		secondInstance = new Person();
+		firstInstance.name = 'new name';
+		firstInstance.address.street = 'Kosovska 49';
+		expect(secondInstance.name).toBe(__);
+		expect(secondInstance.address.street).toBe(__);
+	});
+	it('6 - should understand prototypes - angularjs scopes (Scope.prototype.$new)', function () {
+		var parentScope = {
+				name: 'default name'
+			},
+			createChildScope = function (parentScope) {
+				var ChildScopeConstructor = function () {
+				};
+				ChildScopeConstructor.prototype = parentScope;
+				return new ChildScopeConstructor();
+			},
+			childScope = createChildScope(parentScope);
+		expect(parentScope.name).toBe(__);
+		expect(childScope.name).toBe(__);
+		childScope.name = 'new name';
+		expect(parentScope.name).toBe(__);
+		expect(childScope.name).toBe(__);
 	});
 });

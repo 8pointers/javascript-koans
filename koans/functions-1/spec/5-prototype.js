@@ -71,7 +71,11 @@ describe('prototype', function () {
 	});
 	it('6 - should understand prototypes - angularjs scopes (Scope.prototype.$new)', function () {
 		var parentScope = {
-				name: 'default name'
+				name: 'default name',
+				address: {
+					street: 'Kosovska 51',
+					postcode: '11000'
+				}
 			},
 			createChildScope = function (parentScope) {
 				var ChildScopeConstructor = function () {
@@ -85,5 +89,10 @@ describe('prototype', function () {
 		childScope.name = 'new name';
 		expect(parentScope.name).toBe(__);
 		expect(childScope.name).toBe(__);
+		expect(parentScope.address.street).toBe(__);
+		expect(childScope.address.street).toBe(__);
+		childScope.address.street = 'Kosovska 49';
+		expect(parentScope.address.street).toBe(__);
+		expect(childScope.address.street).toBe(__);
 	});
 });

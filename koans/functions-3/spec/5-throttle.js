@@ -4,33 +4,43 @@
  * throttling + prioritization
  */
 describe('Throttle', function (done) {
-	it('1 - should never invoke the specified function twice within specified time interval', function () {
-		var counter = 0, incrementCounter = function () {
-			counter++;
-		}, throttledIncrementCounter = SAMURAIPRINCIPLE.throttle(incrementCounter, 1000), interval;
-		interval = setInterval(throttledIncrementCounter, 0);
-		setTimeout(function () {
-			expect(counter).toBe(1);
-		}, 900);
-		setTimeout(function () {
-			expect(counter).toBe(2);
-			clearInterval(interval);
-			done();
-		}, 1100);
+	var priceOnScreen, showPrice, throttledShowPrice;
+	beforeEach(function () {
+		priceOnScreen;
+		showPrice = function (currentPrice) {
+			priceOnScreen = currentPrice;
+		};
+		throttledShowPrice = SAMURAIPRINCIPLE.throttle(showPrice, 1000);
 	});
-	it('2 - should invoke the specified function after specified interval ', function (done) {
-		var counter = 0, incrementCounter = function () {
-			counter++;
-		}, throttledIncrementCounter = SAMURAIPRINCIPLE.throttle(incrementCounter, 1000);
-		throttledIncrementCounter();
-		throttledIncrementCounter();
-		expect(counter).toBe(1);
-		setTimeout(function () {
-			expect(counter).toBe(2);
-			done();
-		}, 1100);
+	it('1 - should invoke the specified function when throttled function invoked first time', function () {
+		throttledShowPrice(100);
+
+		expect(priceOnScreen).toBe(100);
 	});
-	it('3 - should just demonstrate throttle in action - no tests', function (done) {
+	it('2 - should never invoke the specified function twice within specified time interval', function () {
+		throttledShowPrice(100);
+		throttledShowPrice(200);
+
+		expect(priceOnScreen).toBe(100);
+	});
+	it('3 - should invoke the specified function after specified interval lapsed, with last', function (done) {
+		throttledShowPrice(100);
+		setTimeout(function () {
+			throttledShowPrice(200);
+			expect(priceOnScreen).toBe(100);
+		}, 250);
+
+		setTimeout(function () {
+			throttledShowPrice(300);
+			expect(priceOnScreen).toBe(100);
+		}, 500);
+
+		setTimeout(function () {
+			expect(priceOnScreen).toBe(300);
+			done();
+		}, 1001);
+	});
+	it('4 - should just demonstrate throttle in action - no tests', function (done) {
 		var counter = 0, counterElement = jQuery('#counter'),
 		setCounter = function (value) {
 			counterElement.text(value);
@@ -39,7 +49,7 @@ describe('Throttle', function (done) {
 			counter++;
 			throttledSetCounter(counter);
 		}, 100);
-		setTimeout(done, 10000);
+		setTimeout(done, 4000);
 	});
 	/*
 	 * For bonus points - how would you go about this?

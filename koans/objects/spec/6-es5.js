@@ -26,4 +26,28 @@ describe('Delete', function () {
     }
     expect(myObject.firstName).toBe(__);
   });
+  it('should understand Object.seal', function () {
+    var samurai = {
+      name: 'Myamoto'
+    };
+    Object.seal(samurai);
+
+    samurai.name = 'Hattori';
+    expect(samurai.name).toBe(__);
+
+    samurai.address = '1 Ninja Way';
+    expect(samurai.address).toBe(__);
+  });
+  it('should understand Object.freeze', function () {
+    var samurai = {
+      name: 'Myamoto'
+    };
+    Object.freeze(samurai);
+
+    samurai.name = 'Hattori';
+    expect(samurai.name).toBe(__);
+
+    samurai.address = '1 Ninja Way';
+    expect(samurai.address).toBe(__);
+  });
 });

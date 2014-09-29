@@ -1,4 +1,4 @@
-describe('Delete', function () {
+describe('Some ES5 features', function () {
   it('should understand Object.create', function () {
     var numEnumerableProperties = 0,
       propertyName,

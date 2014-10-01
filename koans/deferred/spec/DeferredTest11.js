@@ -4,7 +4,7 @@ describe('Deferred', function () {
     firstCallback = jasmine.createSpy(),
     secondCallback = jasmine.createSpy();
     deferred
-      .failed(firstCallback);
+      .failed(firstCallback)
       .failed(secondCallback);
     expect(firstCallback).toHaveBeenCalledWith('argument');
     expect(secondCallback).toHaveBeenCalledWith('argument');

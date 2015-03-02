@@ -1,4 +1,3 @@
-/*global -$ */
 (function () {
   'use strict';
   var gulp = require('gulp'),
@@ -11,7 +10,7 @@
       }
     });
     gulp.watch([
-      '**/*.js'
+      'koans/**/*.js'
     ]).on('change', browserSync.reload);
   });
   gulp.task('default', ['serve']);

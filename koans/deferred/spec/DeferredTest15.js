@@ -5,6 +5,6 @@ describe('Deferred', function () {
     failedCallback = jasmine.createSpy();
     deferred.then(doneCallback, failedCallback);
     expect(doneCallback).not.toHaveBeenCalled();
-    expect(failedCallback).toHaveBeenCalledWith('argument');
+    expect(failedCallback).toHaveBeenCalledWith('arguments');
   });
 });

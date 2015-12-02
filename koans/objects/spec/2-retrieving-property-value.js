@@ -32,6 +32,7 @@ describe('Retrieving properties', function () {
 	it('5 - should know guard operator &&', function () {
 		var samurai2, samurai3 = {
 			address: {
+				street: 'Samurai Way',
 				postcode: '18+'
 			}
 		};
@@ -42,6 +43,7 @@ describe('Retrieving properties', function () {
 	it('6 - should know how to combine default and guard operators', function () {
 		var samurai2, samurai3 = {
 			address: {
+				street: 'Samurai Way',
 				postcode: '18+'
 			}
 		};

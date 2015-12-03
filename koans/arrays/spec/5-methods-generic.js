@@ -48,7 +48,7 @@ describe('Arrays - generic methods', function () {
 			wasError = true;
 		}
 		expect(wasError).toBe(__);
-		expect(Array.prototype.splice.call(args, 0, 1)).toBe(__);
+		expect(Array.prototype.splice.call(args, 0, 1)).toEqual(__);
 		expect(args).toEqual(__);
 	});
 	it('9 - should understand reverse is generic method', function () {

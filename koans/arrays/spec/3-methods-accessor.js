@@ -21,7 +21,7 @@ describe('Arrays - accessor methods', function () {
 		expect('.-.-.-.-.-.-.-.-.-.'.split('-')).toEqual(__);
 	});
 	it('6 - should understand join and split', function () {
-		expect(new Array(10).join('._').split('-')).toEqual(__);
+		expect(new Array(10).join('._').split('_')).toEqual(__);
 	});
 	it('7 - should understand slice', function () {
 		var array = [1, 2, 3, 4, 5];

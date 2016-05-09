@@ -1,24 +1,22 @@
-/*global describe, expect, it, jasmine, SAMURAIPRINCIPLE */
 describe('eventDispatcher', function () {
-	'use strict';
-	it('should use dispatchEvent to invoke registered listener', function () {
-		var underTest = SAMURAIPRINCIPLE.eventDispatcher({}),
-			result,
-			listener = function () {
-				result = 'listenerInvoked';
-			};
-		underTest.addEventListener(listener);
+  it('should use dispatchEvent to invoke registered listener', function () {
+    var underTest = SAMURAIPRINCIPLE.eventDispatcher({}),
+      result,
+      listener = function () {
+        result = 'listenerInvoked';
+      };
+    underTest.addEventListener(listener);
 
-		underTest.dispatchEvent('argument');
+    underTest.dispatchEvent('argument');
 
-		expect(result).toBe('listenerInvoked');
-	});
-	//Same test, but using a Jasmine spy
-	it('should use dispatchEvent to invoke registered listener', function () {
-		var underTest = SAMURAIPRINCIPLE.eventDispatcher({}),
-			listener = jasmine.createSpy();
-		underTest.addEventListener(listener);
-		underTest.dispatchEvent('argument');
-		expect(listener).toHaveBeenCalledWith('argument');
-	});
+    expect(result).toBe('listenerInvoked');
+  });
+  //Same test, but using a Jasmine spy
+  it('should use dispatchEvent to invoke registered listener', function () {
+    var underTest = SAMURAIPRINCIPLE.eventDispatcher({}),
+      listener = jasmine.createSpy();
+    underTest.addEventListener(listener);
+    underTest.dispatchEvent('argument');
+    expect(listener).toHaveBeenCalledWith('argument');
+  });
 });

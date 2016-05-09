@@ -1,17 +1,15 @@
-/*global describe, expect, it, SAMURAIPRINCIPLE */
 describe('eventDispatcher', function () {
-	'use strict';
-	it('should be able to specify the order in which listeners are invoked,\
-		by setting priority', function () {
-		var underTest = SAMURAIPRINCIPLE.eventDispatcher({}),
-			result = ':',
-			lowPriorityListener = function () { result += 'first:'; },
-			highPriorityListener = function () { result += 'second:'; };
-		underTest.addEventListener('EventType', lowPriorityListener, 1);
-		underTest.addEventListener('EventType', highPriorityListener, 2);
+  it('should be able to specify the order in which listeners are invoked,\
+    by setting priority', function () {
+    var underTest = SAMURAIPRINCIPLE.eventDispatcher({}),
+      result = ':',
+      lowPriorityListener = function () { result += 'first:'; },
+      highPriorityListener = function () { result += 'second:'; };
+    underTest.addEventListener('EventType', lowPriorityListener, 1);
+    underTest.addEventListener('EventType', highPriorityListener, 2);
 
-		underTest.dispatchEvent('EventType', 'argument');
+    underTest.dispatchEvent('EventType', 'argument');
 
-		expect(result).toBe(':second:first:');
-	});
+    expect(result).toBe(':second:first:');
+  });
 });

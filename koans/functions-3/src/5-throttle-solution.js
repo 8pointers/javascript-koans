@@ -1,7 +1,7 @@
 var SAMURAIPRINCIPLE = SAMURAIPRINCIPLE || {};
 SAMURAIPRINCIPLE.throttle = function (f, timeInMillis) {
-  var tsNextInvocationPossible = 0, nextArguments, timeout;
-  var apply = function (now, args) {
+  var tsNextInvocationPossible = 0, nextArguments, timeout, apply;
+  apply = function (now, args) {
     tsNextInvocationPossible = now + timeInMillis;
     f.apply({}, args);
   };

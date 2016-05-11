@@ -3,10 +3,10 @@
  * throttle jQuery.ajax
  * throttling + prioritization
  */
-describe('Throttle', function (done) {
+describe('Throttle', function () {
   var priceOnScreen, showPrice, throttledShowPrice;
   beforeEach(function () {
-    priceOnScreen;
+    priceOnScreen = undefined;
     showPrice = function (currentPrice) {
       priceOnScreen = currentPrice;
     };

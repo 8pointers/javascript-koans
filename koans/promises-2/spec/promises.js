@@ -1,10 +1,10 @@
 describe('Promises', () => {
   let __ = jasmine.createSpy('replace me with successCallback, failureCallback (or sometimes finallyCallback)'),
     ___ = 'replace me with the value that will make the test pass',
-    resolve: Function, reject: Function, promise: Promise<string>,
-    successCallback: (result: any) => void,
-    failureCallback: (result: any) => void,
-    finallyCallback: (result: any) => void;
+    resolve, reject, promise,
+    successCallback,
+    failureCallback,
+    finallyCallback;
   beforeEach(() => {
     promise = new Promise(function (res, rej) {
       resolve = res;
@@ -74,17 +74,17 @@ describe('Promises', () => {
   });
 
   describe('Chaining', function () {
-    var successAsyncAction: (result: any) => Promise<any>,
-      failAsyncAction: (reason: any) => Promise<any>,
-      verify: (fn: Function, done: Function) => void;
+    var successAsyncAction,
+      failAsyncAction,
+      verify;
     beforeEach(function () {
-      successAsyncAction = function (result: any) {
+      successAsyncAction = function (result) {
         return Promise.resolve(result);
       };
-      failAsyncAction = function (reason: any) {
+      failAsyncAction = function (reason) {
         return Promise.reject(reason);
       };
-      verify = function (fn: Function, done: Function) {
+      verify = function (fn, done) {
         setTimeout(function () {
           fn();
           done();
@@ -111,7 +111,7 @@ describe('Promises', () => {
 
     it('should understand chaining 1', function (done) {
       successAsyncAction('Result')
-        .then(function (result: string) {
+        .then(function (result) {
           return result + ' Little extra';
         })
         .then(successCallback, failureCallback);
@@ -124,7 +124,7 @@ describe('Promises', () => {
 
     it('should understand chaining 2', function (done) {
       successAsyncAction('Result')
-        .then(function (result: string) {
+        .then(function (result) {
           return successAsyncAction(result + ' Little more');
         })
         .then(successCallback, failureCallback);
@@ -137,7 +137,7 @@ describe('Promises', () => {
 
     it('should understand chaining 3', function (done) {
       successAsyncAction('Result')
-        .then(function (result: string) {
+        .then(function (result) {
           return failAsyncAction(result + ' Little more');
         })
         .then(successCallback, failureCallback);
@@ -194,7 +194,7 @@ describe('Promises', () => {
     });
 
     it('should understand Promise.all 4', function (done) {
-      let getPerson = function (id: number):Promise<any> {
+      let getPerson = function (id) {
         return Promise.resolve({
           id: id,
           age: id * 100

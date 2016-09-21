@@ -12,3 +12,7 @@ JavaScript Koans - exercises for my JavaScript workshop.
 - Observable
 - Deferred
 - Functions part 3
+
+````
+npm install
+````

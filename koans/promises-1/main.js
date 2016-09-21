@@ -1,17 +1,19 @@
 const SAMURAIPRINCIPLE = {};
-
-SAMURAIPRINCIPLE.PlayerService = function () {
-  this.getPlayer = function (playerId) {
-    return fetch(`data/player/${playerId}.json`)
-      .then(response => response.json());
+(function () {
+  const fetchJson = function (url) {
+    return fetch(url).then(response => response.json());
   };
-};
-SAMURAIPRINCIPLE.LeaderboardService = function () {
-  this.getLeaderboard = function () {
-    return fetch('data/leaderboard.json')
-      .then(response => response.json());
+  SAMURAIPRINCIPLE.PlayerService = function () {
+    this.getPlayer = function (playerId) {
+      return fetchJson(`data/player/${playerId}.json`);
+    };
   };
-};
+  SAMURAIPRINCIPLE.LeaderboardService = function () {
+    this.getLeaderboard = function () {
+      return fetchJson('data/leaderboard.json');
+    };
+  };
+}());
 
 let playerService = new SAMURAIPRINCIPLE.PlayerService(),
   leaderboardService = new SAMURAIPRINCIPLE.LeaderboardService();

@@ -6,11 +6,7 @@ SAMURAIPRINCIPLE.eventDispatcher = function (base) {
       listener = type;
       type = 'default';
     }
-    listeners.push({
-      type: type,
-      listener: listener,
-      priority: priority
-    });
+    listeners.push({ type, listener, priority});
   };
   base.listener = function () {
     return listeners[0].listener;
@@ -22,14 +18,9 @@ SAMURAIPRINCIPLE.eventDispatcher = function (base) {
     } else {
       args.shift();
     }
-    listeners
-      .filter(function (listenerDetails) {
-        return listenerDetails.type === type;
-      })
-      .sort(function (firstListenerDetails, secondListenerDetails) {
-        return secondListenerDetails.priority - firstListenerDetails.priority;
-      })
-      .some(function (listenerDetails) {
+    listeners.filter(listenerDetails => listenerDetails.type === type)
+      .sort((firstListenerDetails, secondListenerDetails) => secondListenerDetails.priority - firstListenerDetails.priority)
+      .some(listenerDetails => {
         try {
           return listenerDetails.listener.apply(undefined, args) === false;
         } catch (error) {

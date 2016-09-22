@@ -11,6 +11,7 @@
     "__": false,
     "afterEach": false,
     "beforeEach": false,
+    "console": true,
     "describe": false,
     "expect": false,
     "it": false,

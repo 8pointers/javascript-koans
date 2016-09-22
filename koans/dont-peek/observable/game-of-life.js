@@ -19,7 +19,7 @@ jQuery.fn.gameOfLifeWidget = function (gameOfLife, rows, columns, animationDurat
       jQuery(this).click(gameOfLife.toggleCellState.bind(gameOfLife, Math.floor(index / columns), index % columns));
     });
     gameOfLife.addEventListener('cellStateChanged', function (row, column) {
-      self.find('tr:nth-child(' + (row + 1) + ') td:nth-child(' + (column + 1) + ')').toggleClass('alive', animationDuration);
+      self.find(`tr:nth-child(${row + 1}) td:nth-child(${column + 1})`).toggleClass('alive', animationDuration);
     });
   });
 };

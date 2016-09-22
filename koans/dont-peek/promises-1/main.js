@@ -17,16 +17,16 @@ const SAMURAIPRINCIPLE = {};
 
 SAMURAIPRINCIPLE.BetterLeaderboardService = function (playerService, leaderboardService) {
   this.getLeaderboard = function () {
-    leaderboardService.getLeaderboard()
+    return leaderboardService.getLeaderboard()
       .then(leaderboard => Promise.all(leaderboard.map(l => playerService.getPlayer(l.id))));
   };
   this.getLeaderboardAnotherSolution = function () {
-    leaderboardService.getLeaderboard()
+    return leaderboardService.getLeaderboard()
       .then(leaderboard => leaderboard.map(l => playerService.getPlayer(l.id)))
       .then(leaderboard => Promise.all(leaderboard));
   };
   this.getLeaderboardYetAnotherSolution = function () {
-    leaderboardService.getLeaderboard()
+    return leaderboardService.getLeaderboard()
       .then(function (leaderboard) {
         return leaderboard.map(l => playerService.getPlayer(l.id));
       })

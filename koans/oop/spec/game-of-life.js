@@ -32,8 +32,8 @@ describe('Game of Life', function () {
   });
   it('should set the cell state to dead in next generation if the cell is alive in current generation and has more than 3 neighbours', function () {
     gameOfLife.toggleCellState(2, 2).toggleCellState(2, 3).toggleCellState(2, 4)
-                    .toggleCellState(3, 3)
-                    .toggleCellState(4, 3);
+                                    .toggleCellState(3, 3)
+                                    .toggleCellState(4, 3);
 
     gameOfLife.tick();
 

@@ -6,6 +6,8 @@ module.exports = {
     },
     extends: 'eslint:recommended',
     globals: {
+      jQuery: false,
+      sinon: false,
       SAMURAIPRINCIPLE: true,
       __: false
     },

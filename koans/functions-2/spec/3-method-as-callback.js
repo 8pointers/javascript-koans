@@ -3,25 +3,30 @@ describe('Functions - method as a callback', function () {
     window.name = 'window name';
   });
   it('0 - warmup (a brief refresh on invocation patterns)', function () {
-    var model = {
+    var model, fn;
+    model = {
       name: 'original name',
       setName: function (value) {
         this.name = value;
       }
-    }, fn = model.setName;
+    };
+    fn = model.setName;
     fn('new name');
     expect(model.name).toBe(__);
     expect(window.name).toBe(__);
   });
-  var createModel1 = function () {
-    var result = {
+  var createModel1, createModel2, CreateModel3, CreateModel4, CreateModel5, simulateAjax;
+  createModel1 = function () {
+    var result;
+    result = {
       name: 'original name',
       setName: function (value) {
         this.name = value;
       }
     };
     return result;
-  }, createModel2 = function () {
+  };
+  createModel2 = function () {
     var result = {
       name: 'original name',
       setName: function (value) {
@@ -29,19 +34,23 @@ describe('Functions - method as a callback', function () {
       }
     };
     return result;
-  }, CreateModel3 = function () {
+  };
+  CreateModel3 = function () {
     this.name = 'original name';
     this.setName = function (value) {
       this.name = value;
     };
-  }, CreateModel4 = function () {
+  };
+  CreateModel4 = function () {
     var self = this;
     this.name = 'original name';
     this.setName = function (value) {
       self.name = value;
     };
-  }, CreateModel5 = function () {
-  }, simulateAjax = function (successCallback) {
+  };
+  CreateModel5 = function () {
+  };
+  simulateAjax = function (successCallback) {
     successCallback('new name');
   };
   CreateModel5.prototype.name = 'original name';

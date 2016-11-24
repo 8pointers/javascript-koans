@@ -1,6 +1,7 @@
 describe('Enumerating properties', function () {
   it('1 - should understand for-in loop', function () {
-    var samurai = {
+    var samurai, name, properties = 0, ownProperties = 0, enumerableProperties = 0;
+    samurai = {
       name: 'Myamoto',
       age: 32,
       address: {
@@ -10,7 +11,7 @@ describe('Enumerating properties', function () {
       toString: function () {
         return 'I\'m a Samurai!';
       }
-    }, name, properties = 0, ownProperties = 0, enumerableProperties = 0;
+    };
     for (name in samurai) {
       properties += 1;
       if (samurai.hasOwnProperty(name)) {

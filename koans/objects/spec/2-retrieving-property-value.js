@@ -28,7 +28,8 @@ describe('Retrieving properties', function () {
     expect(samurai.title || 'Mr.').toBe(__);
   });
   it('5 - should know guard operator &&', function () {
-    var samurai2, samurai3 = {
+    var samurai2, samurai3;
+    samurai3 = {
       address: {
         postcode: '18+'
       }
@@ -38,7 +39,8 @@ describe('Retrieving properties', function () {
     expect(samurai3 && samurai3.address && samurai3.address.street).toBe(__);
   });
   it('6 - should know how to combine default and guard operators', function () {
-    var samurai2, samurai3 = {
+    var samurai2, samurai3;
+    samurai3 = {
       address: {
         postcode: '18+'
       }

@@ -20,9 +20,10 @@ describe('Delete', function () {
     expect(samurai.name).toBe(__);
   });
   it('2 - should understand delete operator vs. setting property value to undefined', function () {
-    var object = {
+    var object, properties, name; 
+    object = {
       propertyName: 'propertyValue'
-    }, properties, name;
+    };
 
     properties = '';
     object.propertyName = undefined;

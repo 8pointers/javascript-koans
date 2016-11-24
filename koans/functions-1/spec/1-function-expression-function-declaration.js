@@ -1,9 +1,11 @@
 describe('function expression and function declaration', function () {
   it('1 - should understand function expression', function () {
+    var f, g;
     expect(typeof f).toBe(__);
-    var f = function () {
+    f = function () {
       return 123;
-    }, g = f;
+    };
+    g = f;
     expect(typeof f).toBe(__);
     expect(f()).toBe(__);
     expect(f === g).toBe(__);
@@ -48,9 +50,10 @@ describe('function expression and function declaration', function () {
     expect(result).toBe(__);
   });
   it('5 - should understand function expression and declaration', function () {
-    var f = function factorial(number) {
+    var f, result;
+    f = function factorial(number) {
       return number ? number * factorial(number - 1) : 1;
-    }, result;
+    };
     try {
       result = f(3);
     } catch (error) {

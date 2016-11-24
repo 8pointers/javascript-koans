@@ -42,7 +42,8 @@ describe('function parameters', function () {
     expect(factorial(3)).toBe(__);
   });
   it('7 - should understand arguments', function () {
-    var f = function () {
+    var f, result;
+    f = function () {
       if (arguments.length === 1) {
         return;
       } else if (arguments.length === 2) {
@@ -50,7 +51,7 @@ describe('function parameters', function () {
       } else {
         throw 'incorrect number of parameters';
       }
-    }, result;
+    };
     expect(f(3)).toBe(__);
     expect(f(2, 3)).toBe(__);
     try {
@@ -62,6 +63,7 @@ describe('function parameters', function () {
   });
   it('8 - should understand function length', function () {
     var f = function (first, second) {
+      return second;
     };
     expect(f.length).toBe(__);
   });

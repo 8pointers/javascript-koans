@@ -1,7 +1,8 @@
 describe('prototype', function () {
   it('1 - should understand prototype', function () {
-    var Person = function () {
-    }, instance;
+    var Person, instance;
+    Person = function () {
+    };
     Person.prototype = {
       name: 'default name'
     };
@@ -10,8 +11,9 @@ describe('prototype', function () {
     expect(Person.prototype.isPrototypeOf(instance)).toBe(__);
   });
   it('2 - should understand prototype', function () {
-    var Person = function () {
-    }, instance;
+    var Person, instance;
+    Person = function () {
+    };
     instance = new Person();
     Person.prototype = {
       name: 'default name'
@@ -20,8 +22,10 @@ describe('prototype', function () {
     expect(Person.prototype.isPrototypeOf(instance)).toBe(__);
   });
   it('3 - should understand prototype', function () {
-    var Person = function () {
-    }, firstInstance = new Person(), secondInstance, thirdInstance;
+    var Person, firstInstance, secondInstance, thirdInstance;
+    Person = function () {
+    };
+    firstInstance = new Person();
     expect(firstInstance.name).toBe(__);
     Person.prototype.name = 'before';
     secondInstance = new Person();
@@ -44,8 +48,9 @@ describe('prototype', function () {
     expect(Person.prototype.isPrototypeOf(thirdInstance)).toBe(__);
   });
   it('4 - should understand prototype & delete', function () {
-    var Person = function () {
-    }, instance;
+    var Person, instance;
+    Person = function () {
+    };
     Person.prototype.name = 'default name';
     instance = new Person();
     expect(instance.name).toBe(__);
@@ -53,8 +58,9 @@ describe('prototype', function () {
     expect(instance.name).toBe(__);
   });
   it('5 - should understand prototype', function () {
-    var Person = function () {
-    }, firstInstance, secondInstance;
+    var Person, firstInstance, secondInstance;
+    Person = function () {
+    };
     Person.prototype.name = 'default name';
     Person.prototype.address = {
       street: 'Kosovska 51',

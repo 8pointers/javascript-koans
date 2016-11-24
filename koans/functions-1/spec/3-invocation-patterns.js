@@ -55,7 +55,8 @@ describe('Invocation patterns', function () {
       expect(storedThis).toBe(__);
     });
     it('7 - should understand strict mode', function () {
-      var storedThis, strictMethod = function () {
+      var storedThis, strictMethod;
+      strictMethod = function () {
         'use strict';
         storedThis = this;
       };
@@ -77,14 +78,17 @@ describe('Invocation patterns', function () {
       expect(storedThis).toBe(__);
     });
     it('9 - should understand constructor invocation pattern', function () {
-      var Samurai = function (name) {
+      var Samurai, name, samurai;
+      Samurai = function (name) {
         this.getName = function () {
           return name;
         };
         this.setName = function (value) {
           name = value;
         };
-      }, name = 'Myamoto', samurai = new Samurai(name);
+      };
+      name = 'Myamoto';
+      samurai = new Samurai(name);
       expect(name).toBe(__);
       expect(samurai.name).toBe(__);
       expect(samurai.getName()).toBe(__);
@@ -96,14 +100,16 @@ describe('Invocation patterns', function () {
       expect(samurai.getName()).toBe(__);
     });
     it('10 - should understand instanceof', function () {
-      var Samurai = function (name) {
+      var Samurai, samurai;
+      Samurai = function (name) {
         this.getName = function () {
           return name;
         };
         this.setName = function (value) {
           name = value;
         };
-      }, samurai = new Samurai('Myamoto');
+      };
+      samurai = new Samurai('Myamoto');
       expect(samurai instanceof Samurai).toBe(__);
       expect(samurai instanceof Object).toBe(__);
       expect(samurai instanceof Array).toBe(__);
@@ -113,9 +119,11 @@ describe('Invocation patterns', function () {
 
   describe('call/apply', function () {
     it('11 - should understand call-apply invocation pattern', function () {
-      var samurai2 = {
+      var samurai2, samurai3;
+      samurai2 = {
         aMethod: aFunction
-      }, samurai3 = {};
+      };
+      samurai3 = {};
       samurai.aMethod.call(samurai2);
       expect(storedThis).toBe(__);
       samurai.aMethod.apply(samurai3, []);

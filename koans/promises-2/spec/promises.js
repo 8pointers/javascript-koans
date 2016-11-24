@@ -116,10 +116,10 @@ describe('Promises', () => {
         })
         .then(successCallback, failureCallback);
 
-        verify(() => {
-          expect(__).toHaveBeenCalledWith(___);
-          expect(__).not.toHaveBeenCalled();
-        }, done);
+      verify(() => {
+        expect(__).toHaveBeenCalledWith(___);
+        expect(__).not.toHaveBeenCalled();
+      }, done);
     });
 
     it('should understand chaining 2', function (done) {
@@ -129,10 +129,10 @@ describe('Promises', () => {
         })
         .then(successCallback, failureCallback);
 
-        verify(() => {
-          expect(__).toHaveBeenCalledWith(___);
-          expect(__).not.toHaveBeenCalled();
-        }, done);
+      verify(() => {
+        expect(__).toHaveBeenCalledWith(___);
+        expect(__).not.toHaveBeenCalled();
+      }, done);
     });
 
     it('should understand chaining 3', function (done) {
@@ -142,10 +142,10 @@ describe('Promises', () => {
         })
         .then(successCallback, failureCallback);
 
-        verify(() => {
-          expect(__).toHaveBeenCalledWith(___);
-          expect(__).not.toHaveBeenCalled();
-        }, done);
+      verify(() => {
+        expect(__).toHaveBeenCalledWith(___);
+        expect(__).not.toHaveBeenCalled();
+      }, done);
     });
 
     it('should understand chaining 4', function (done) {
@@ -154,30 +154,30 @@ describe('Promises', () => {
         })
         .then(successCallback, failureCallback);
 
-        verify(() => {
-          expect(__).toHaveBeenCalledWith(___);
-          expect(__).not.toHaveBeenCalled();
-        }, done);
+      verify(() => {
+        expect(__).toHaveBeenCalledWith(___);
+        expect(__).not.toHaveBeenCalled();
+      }, done);
     });
 
     it('should understand Promise.all 1', function (done) {
       Promise.all([successAsyncAction('Result 1'), successAsyncAction('Result 2'), successAsyncAction('Result 3')])
         .then(successCallback, failureCallback);
 
-        verify(() => {
-          expect(__).toHaveBeenCalledWith(___);
-          expect(__).not.toHaveBeenCalled();
-        }, done);
+      verify(() => {
+        expect(__).toHaveBeenCalledWith(___);
+        expect(__).not.toHaveBeenCalled();
+      }, done);
     });
 
     it('should understand Promise.all 2', function (done) {
       Promise.all([successAsyncAction('Result 1'), failAsyncAction('Reason 2'), successAsyncAction('Result 3')])
         .then(successCallback, failureCallback);
 
-        verify(() => {
-          expect(__).toHaveBeenCalledWith(___);
-          expect(__).not.toHaveBeenCalled();
-        }, done);
+      verify(() => {
+        expect(__).toHaveBeenCalledWith(___);
+        expect(__).not.toHaveBeenCalled();
+      }, done);
     });
 
     it('should understand Promise.all 3', function (done) {
@@ -187,10 +187,10 @@ describe('Promises', () => {
         })
         .then(successCallback, failureCallback);
 
-        verify(() => {
-          expect(__).toHaveBeenCalledWith(___);
-          expect(__).not.toHaveBeenCalled();
-        }, done);
+      verify(() => {
+        expect(__).toHaveBeenCalledWith(___);
+        expect(__).not.toHaveBeenCalled();
+      }, done);
     });
 
     it('should understand Promise.all 4', function (done) {
@@ -206,10 +206,10 @@ describe('Promises', () => {
         })
         .then(successCallback, failureCallback);
 
-        verify(() => {
-          expect(__).toHaveBeenCalledWith(___);
-          expect(__).not.toHaveBeenCalled();
-        }, done);
+      verify(() => {
+        expect(__).toHaveBeenCalledWith(___);
+        expect(__).not.toHaveBeenCalled();
+      }, done);
     });
-  })
+  });
 });

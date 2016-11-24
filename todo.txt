@@ -1,8 +1,0 @@
-- console.log gotcha in chrome (stringify)
-- phantom (ci)
-
-- day 3:
-	- functional is new black (throttling, 'threading')
-	- script loaders
-	- workflow (test (incl ci), code, lint, minimize, load, debug (charles))
-	- chrome dev tools (debugging; live changes)

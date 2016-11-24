@@ -61,7 +61,7 @@ describe('Warmup - timers and asynchronous specs', function () {
     expect(i).toBe(__);
   });
 });
-describe('Closure', function (done) {
+describe('Closure', function () {
   'use strict';
   it('1 - should understand loop and closure', function (done) {
     var i, debugElement = jQuery('#debug');

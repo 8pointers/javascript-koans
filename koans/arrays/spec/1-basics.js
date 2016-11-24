@@ -1,5 +1,6 @@
 describe('Arrays - basics', function () {
-  var array, isArray = function (value) {
+  var array, isArray;
+  isArray = function (value) {
     return value && typeof value === 'object' && value.constructor === Array;
   };
   beforeEach(function () {
@@ -19,9 +20,10 @@ describe('Arrays - basics', function () {
     expect(isArray(args)).toBe(__);
   });
   it('2 - arguments recap', function () {
-    var returnArguments = function () {
+    var returnArguments, args;
+    returnArguments = function () {
       return arguments;
-    }, args;
+    };
     args = returnArguments(1, 2, 3);
     expect(args[0]).toEqual(__);
     expect(args[1]).toEqual(__);

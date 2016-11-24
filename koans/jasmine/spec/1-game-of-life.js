@@ -1,3 +1,4 @@
+/* global isCellAliveInNextGeneration */
 describe('Game of Life', function () {
   describe('Determining whether cell is alive in next generation', function () {
     it('should return false when a live cell has fewer than two live neighbours - under-population', function () {

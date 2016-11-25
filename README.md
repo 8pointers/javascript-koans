@@ -8,10 +8,12 @@ JavaScript Koans - exercises for my JavaScript workshop.
 - Functions part 1
 - Arrays
 - Functions part 2
+- Functions part 3
 - OOP
 - Observable
-- Deferred
-- Functions part 3
+- Promises part 1
+- Promises part 2
+- Reactive programming
 
 ````
 npm install

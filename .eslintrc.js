@@ -8,6 +8,7 @@ module.exports = {
     globals: {
       jQuery: false,
       sinon: false,
+      Rx: false,
       SAMURAIPRINCIPLE: true,
       __: false
     },

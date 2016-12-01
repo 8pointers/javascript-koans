@@ -4,12 +4,13 @@
     "node": ">=6.9.1"
   },
   "devDependencies": {
-    "eslint": "3.10.2",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
+    "eslint": "3.11.0",
+    "eslint-config-standard": "6.2.1",
+    "eslint-plugin-promise": "3.4.0",
+    "eslint-plugin-standard": "2.0.1",
     "http-server": "0.9.0",
     "jasmine-core": "2.5.2",
+    "jasmine-promises": "0.4.1",
     "jquery": "3.1.1",
     "jquery-ui-dist": "1.12.1",
     "rxjs": "5.0.0-rc.4",

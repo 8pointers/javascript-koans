@@ -37,7 +37,6 @@ describe('return', function () {
     var Samurai, samurai1, samurai2;
     Samurai = function (name) {
       //todo - implement this so that test passes
-      //for bonus points try and not use 'Samurai'
     };
     samurai1 = Samurai('Myamoto');
     samurai2 = new Samurai('Myamoto');

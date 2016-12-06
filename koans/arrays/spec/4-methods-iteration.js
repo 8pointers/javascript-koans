@@ -6,15 +6,15 @@ describe('Arrays - iteration methods', function () {
     })).toEqual(__);
   });
   it('2 - should understand filter with this', function () {
-    var array = [1, 2, 3, 4, 5, 4, 3, 2, 1], THIS = {};
+    var array = [1, 2, 3, 4, 5, 4, 3, 2, 1], visited = {};
     expect(array.filter(function (element) {
       if (this[element]) {
         return false;
       }
       this[element] = true;
       return true;
-    }, THIS)).toEqual(__);
-    expect(THIS).toEqual(__);
+    }, visited)).toEqual(__);
+    expect(visited).toEqual(__);
   });
   it('3 - should understand forEach', function () {
     var array = [1, 2, 3, 4, 5], result = 0;

@@ -1,4 +1,10 @@
 describe('Arrays - generic methods', function () {
+  it('0 - should have an idea how Array.prototype.join works', function () {
+    Array.prototype.myJoin = function (delimiter) {
+      //TODO Implement this so that the test is passing
+    };
+    expect([1, 2, 3].myJoin(',')).toBe('1.2.3');
+  });
   it('1 - should understand join is a generic method', function () {
     expect(Array.prototype.join.call('Hello', '.')).toBe(__);
     expect(Array.prototype.join.call({ 0: 'Zero', 1: 'First', 2: 'Second', length: 3 }, '-')).toBe(__);

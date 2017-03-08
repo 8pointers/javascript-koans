@@ -1,4 +1,4 @@
-describe('Using promises', function () {
+describe('Using promise-based API', function () {
   const leaderboardService = {
     getLeaderboard: function () {
       return fetch('data/leaderboard.json')

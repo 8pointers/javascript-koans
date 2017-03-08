@@ -19,6 +19,6 @@
   },
   "dependencies": {},
   "scripts": {
-    "postinstall": "http-server"
+    "postinstall": "http-server -c-1"
   }
 }

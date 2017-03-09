@@ -28,4 +28,3 @@ describe('Promise.all', function () {
       .catch(reason => expect(reason).toEqual(__));
   });
 });
-

@@ -39,6 +39,6 @@ describe('Using promises', function () {
       todoLeaderboardService = new SAMURAIPRINCIPLE.TodoLeaderboardService(playerService, leaderboardService);
 
     return todoLeaderboardService.getLeaderboard()
-      .then(leaderboard => expect(leaderboard).toEqual(__));
+      .then(leaderboard => expect(leaderboard).toEqual(['Erin', 'Bob', 'Alice', 'Carol', 'Dan']));
   });
 });

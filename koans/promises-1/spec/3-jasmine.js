@@ -36,6 +36,6 @@ describe('Simpler tests using jasmine-promises', function () {
   });
   it('should understand reject (1)', function () {
     return leaderboardService.getLeaderboardBadJSON()
-      .catch(reason => expect(reason).toEqual(new Error(__)));
+      .catch(reason => expect(reason).toEqual(__));
   });
 });

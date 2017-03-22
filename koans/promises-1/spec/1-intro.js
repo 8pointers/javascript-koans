@@ -27,7 +27,7 @@ describe('Using promise-based API', function () {
         done.fail('This should not be executed');
       },
       reason => {
-        expect(reason).toEqual(new Error(__));
+        expect(reason).toEqual(__);
         done();
       });
   });

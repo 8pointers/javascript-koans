@@ -11,6 +11,6 @@ describe('functions', function () {
       return object[propertyName];
     };
     expect(getPropertyName('firstName')).toBe(__);
-    expect(getPropertyName('firstName'), { lastName: 'Hattori' }).toBe(__);
+    expect(getPropertyName('firstName', { lastName: 'Hattori' })).toBe(__);
   });
 });

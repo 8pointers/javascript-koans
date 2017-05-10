@@ -2,14 +2,14 @@ describe('eventDispatcher', function () {
   it('should use dispatchEvent to invoke registered listener', function () {
     var underTest = SAMURAIPRINCIPLE.eventDispatcher({}),
       result,
-      listener = function () {
-        result = 'listenerInvoked';
+      listener = function (argument) {
+        result = 'listenerInvoked with: ' + argument;
       };
     underTest.addEventListener(listener);
 
     underTest.dispatchEvent('argument');
 
-    expect(result).toBe('listenerInvoked');
+    expect(result).toBe('listenerInvoked with: argument');
   });
   //Same test, but using a Jasmine spy
   it('should use dispatchEvent to invoke registered listener', function () {

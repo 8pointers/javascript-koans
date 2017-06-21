@@ -1,3 +1,21 @@
+describe('log (just so you can pick-up some ideas for the next one)', function () {
+  Function.prototype.log = function (logName) {
+    var fn = this;
+    return function (...args) {
+      console.log.apply(console, [logName, ...args]);
+      return fn.apply(undefined, args);
+    };
+  };
+  it('should work', function () {
+    spyOn(console, 'log');
+    const add = function (a, b) {
+      return a + b;
+    }.log('add');
+
+    expect(add(100, 23)).toBe(123);
+    expect(console.log).toHaveBeenCalledWith('add', 100, 23);
+  });
+});
 describe('timeout', function () {
   const delay = function (timeInMillis) {
     return new Promise(resolve => setTimeout(resolve, timeInMillis));

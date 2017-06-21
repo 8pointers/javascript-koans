@@ -17,7 +17,7 @@ SAMURAIPRINCIPLE.GameOfLife = function () {
     } else {
       isAlive[key] = true;
     }
-    this.dispatchEvent(...);
+    this.dispatchEvent(row, column, !!isAlive[key]);
     return this;
   };
   this.tick = function () {

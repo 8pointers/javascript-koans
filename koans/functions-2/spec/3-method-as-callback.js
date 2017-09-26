@@ -105,4 +105,18 @@ describe('Functions - method as a callback', function () {
     expect(model.name).toBe(__);
     expect(window.name).toBe(__);
   });
+  it('8 - should understand passing a method as callback', function () {
+    class CreateModel6 {
+      constructor() {
+        this.name = 'original name';
+      }
+      setName(name) {
+        this.name = name;
+      }
+    }
+    var model = new CreateModel6();
+    simulateAjax(model.setName);
+    expect(model.name).toBe(__);
+    expect(window.name).toBe(__);
+  });
 });

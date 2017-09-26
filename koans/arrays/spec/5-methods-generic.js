@@ -1,7 +1,7 @@
 describe('Arrays - generic methods', function () {
   it('0 - should have an idea how Array.prototype.join works', function () {
     Array.prototype.myJoin = function (delimiter) {
-      //TODO Implement this so that the test is passing
+      //TODO Implement this so that the test is passing, but do not use "join" method - try and implement it they way you think "real" join method is implemented
     };
     expect([1, 2, 3].myJoin('.')).toBe('1.2.3');
   });

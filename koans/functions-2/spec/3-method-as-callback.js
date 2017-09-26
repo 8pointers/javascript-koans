@@ -115,7 +115,11 @@ describe('Functions - method as a callback', function () {
       }
     }
     var model = new CreateModel6();
-    simulateAjax(model.setName);
+    try {
+      simulateAjax(model.setName);
+    } catch (e) {
+      expect(e).toEqual(__);
+    }
     expect(model.name).toBe(__);
     expect(window.name).toBe(__);
   });

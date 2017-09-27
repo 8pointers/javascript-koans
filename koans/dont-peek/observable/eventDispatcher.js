@@ -28,10 +28,7 @@ SAMURAIPRINCIPLE.eventDispatcher = function (base) {
   base.createObservableProperty = function (propertyName) {
     let propertyValue;
     base[`on${propertyName}Changed`] = base.addEventListener.bind(base, `${propertyName}Changed`);
-    base[`set${propertyName}`] = function (value) {
-      propertyValue = value;
-      base.dispatchEvent(`${propertyName}Changed`, value);
-    };
+    base[`set${propertyName}`] = value => base.dispatchEvent(`${propertyName}Changed`, propertyValue = value);
     base[`get${propertyName}`] = () => propertyValue;
   };
   return base;

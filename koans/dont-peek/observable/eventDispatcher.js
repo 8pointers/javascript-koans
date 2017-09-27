@@ -8,9 +8,7 @@ SAMURAIPRINCIPLE.eventDispatcher = function (base) {
     }
     listeners.push({type, listener, priority});
   };
-  base.listener = function () {
-    return listeners[0].listener;
-  };
+  base.listener = () => listeners[0].listener;
   base.dispatchEvent = function (eventType, ...args) {
     if (!args.length) {
       args = [eventType];
@@ -23,7 +21,7 @@ SAMURAIPRINCIPLE.eventDispatcher = function (base) {
         try {
           return listener(...args) === false;
         } catch (error) {
-          console.log('Error dispatching event', error);
+          //Intentionally left empty (for now)
         }
       });
   };

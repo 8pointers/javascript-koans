@@ -11,18 +11,16 @@ SAMURAIPRINCIPLE.eventDispatcher = function (base) {
   base.listener = function () {
     return listeners[0].listener;
   };
-  base.dispatchEvent = function (type) {
-    var args = Array.prototype.slice.call(arguments);
-    if (args.length === 1) {
-      type = 'default';
-    } else {
-      args.shift();
+  base.dispatchEvent = function (eventType, ...args) {
+    if (!args.length) {
+      args = [eventType];
+      eventType = 'default';
     }
-    listeners.filter(listenerDetails => listenerDetails.type === type)
-      .sort((firstListenerDetails, secondListenerDetails) => secondListenerDetails.priority - firstListenerDetails.priority)
-      .some(listenerDetails => {
+    listeners.filter(({type}) => type === eventType)
+      .sort(({priority: priorityOne}, {priority: priorityTwo}) => priorityTwo - priorityOne)
+      .some(({listener}) => {
         try {
-          return listenerDetails.listener.apply(undefined, args) === false;
+          return listener.apply(undefined, args) === false;
         } catch (error) {
         }
       });

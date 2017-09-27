@@ -21,7 +21,7 @@ SAMURAIPRINCIPLE.eventDispatcher = function (base) {
       .sort(({priority: priorityOne}, {priority: priorityTwo}) => priorityTwo - priorityOne)
       .some(({listener}) => {
         try {
-          return listener.apply(undefined, args) === false;
+          return listener(...args) === false;
         } catch (error) {
           console.log('Error dispatching event', error);
         }

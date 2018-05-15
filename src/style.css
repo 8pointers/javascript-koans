@@ -1,0 +1,13 @@
+body {
+  background-color: antiquewhite;
+}
+
+td {
+  background-color: #E0C020;
+  width: 16px;
+  height: 16px;
+}
+
+td.alive {
+  background-color: #4040C0;
+}

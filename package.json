@@ -1,24 +1,44 @@
 {
-  "private": true,
-  "engines": {
-    "node": ">=6.10.0",
-    "npm": "4.3.0"
-  },
-  "devDependencies": {
-    "eslint": "3.17.1",
-    "eslint-config-standard": "7.0.1",
-    "eslint-plugin-promise": "3.5.0",
-    "eslint-plugin-standard": "2.1.1",
-    "http-server": "0.9.0",
-    "jasmine-core": "2.5.2",
-    "jasmine-promises": "0.4.1",
-    "jquery": "3.1.1",
-    "jquery-ui-dist": "1.12.1",
-    "rxjs": "5.2.0",
-    "sinon": "1.17.7"
-  },
-  "dependencies": {},
+  "name": "koans",
+  "version": "1.0.0",
+  "description": "Advanced JavaScript Workshop Exercises",
+  "main": "index.js",
   "scripts": {
-    "postinstall": "http-server -c-1"
+    "test": "jest",
+    "start": "webpack-dev-server --open",
+    "build": "webpack"
+  },
+  "jest": {
+    "globals": {
+      "__": "Fill this in so that the test is passing"
+    },
+    "transform": {
+      "1-intro|2-objects|6-functions|7-oop|8-observable": "babel-jest"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "6.26.3",
+    "babel-jest": "22.4.3",
+    "babel-preset-env": "1.7.0",
+    "clean-webpack-plugin": "0.1.19",
+    "css-loader": "0.28.11",
+    "eslint": "4.19.1",
+    "eslint-config-8pointers": "1.0.0",
+    "html-webpack-plugin": "3.2.0",
+    "jest": "22.4.3",
+    "node-fetch": "2.1.2",
+    "prettier": "1.12.1",
+    "serve-static": "1.13.2",
+    "style-loader": "0.21.0",
+    "webpack": "4.8.2",
+    "webpack-cli": "2.1.3",
+    "webpack-dev-server": "3.1.4"
+  },
+  "dependencies": {
+    "jquery": "3.3.1",
+    "jquery-ui-dist": "1.12.1"
   }
 }

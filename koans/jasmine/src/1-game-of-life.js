@@ -1,2 +1,0 @@
-function isCellAliveInNextGeneration(isCellAlive, numberOfLiveNeighbours) {
-}

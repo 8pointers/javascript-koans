@@ -60,7 +60,7 @@ describe('function expression and function declaration', function() {
   });
   test('6 - should understand the impact of anonymous functions on stack traces', function() {
     //uncomment the line below and run the test; check the call stack
-    //debugger;
+    // debugger;
   });
   test('7 - should understand the impact of anonymous functions on stack traces', function noLongerAnonymousFunction() {
     //uncomment the line below and run the test; check the call stack; compare with previous one

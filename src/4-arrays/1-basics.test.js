@@ -14,6 +14,12 @@ describe('Arrays - basics', function() {
     const args = returnArguments(1, 2, 3);
     expect(Array.isArray(args)).toBe(__);
   });
+  test('2 - should understand Array.from', function() {
+    const array = [1, 2, 3];
+    expect(Array.from(array)).toEqual(__);
+    expect(Array.from('Hello')).toEqual(__);
+    expect(Array.from({ length: 10 }, (_, i) => i)).toEqual(__);
+  });
   test('2 - arguments recap', function() {
     const returnArguments = function() {
       return arguments;

@@ -1,5 +1,11 @@
 describe('function parameters', function() {
-  test('1 - should understand how parameters are passed in javascript', function() {
+  test('1 - should understand function length', function() {
+    const f = function(first, second) {
+      return second;
+    };
+    expect(f.length).toBe(__);
+  });
+  test('2 - should understand how parameters are passed in javascript', function() {
     const inc = function(first, second) {
       return first + (second || 1);
     };
@@ -47,10 +53,15 @@ describe('function parameters', function() {
     }
     expect(result).toBe(__);
   });
-  test('7 - should understand function length', function() {
-    const f = function(first, second) {
-      return second;
+  test('8 - should understand default parameters', function() {
+    const add = (a, b = 1) => a + b;
+    expect(add(2, 3)).toBe(__);
+    expect(add(2)).toBe(__);
+  });
+  test('9 - should understand rest operator (...)', function() {
+    const join = function(delimiter, ...args) {
+      return args.join(delimiter);
     };
-    expect(f.length).toBe(__);
+    expect(join('.', 192, 168, 0, 1)).toBe(__);
   });
 });

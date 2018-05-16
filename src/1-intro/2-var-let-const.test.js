@@ -1,54 +1,50 @@
-describe('let & const', function() {
-  it('should understand var', function() {
+describe('var, let & const', function() {
+  test('should understand var', function() {
     var a = 1;
     expect(a).toBe(__);
-    if (true) {
+    if (a) {
       var a = 2;
       expect(a).toBe(__);
     }
     expect(a).toBe(__);
   });
-  it('should understand let', function() {
+  test('should understand let', function() {
     let a = 1;
     expect(a).toBe(__);
-    if (true) {
+    if (a) {
       let a = 2;
       expect(a).toBe(__);
     }
     expect(a).toBe(__);
   });
-  it('should understand const', function() {
+  test('should understand const', function() {
     const a = 1;
     expect(a).toBe(__);
-    if (true) {
+    if (a) {
       const a = 2;
       expect(a).toBe(__);
     }
     expect(a).toBe(__);
   });
-  it('should understand let', function() {
+  test('should understand let', function() {
     let a = 1;
     expect(a).toBe(__);
     a = 2;
     expect(a).toBe(__);
   });
-  it('should understand const', function() {
+  test('should understand const', function() {
     const a = 1;
     expect(a).toBe(__);
     try {
-      a = 2;
+      // a = 2;
     } catch (e) {
       //empty
     }
     expect(a).toBe(__);
   });
-  it('should understand const', function() {
+  test('should understand const', function() {
     const a = { name: 'Myamoto' };
-    try {
-      a.name = 'Hattori';
-    } catch (e) {
-      //empty
-    }
+    a.name = 'Hattori';
     expect(a).toEqual(__);
   });
 });

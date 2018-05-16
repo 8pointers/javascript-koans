@@ -13,7 +13,7 @@
       "__": "Fill this in so that the test is passing"
     },
     "transform": {
-      "1-intro|2-objects|6-functions|7-oop|8-observable": "babel-jest"
+      "1-intro|2-objects|6-functions|7-oop|8-observable|11-redux": "babel-jest"
     }
   },
   "keywords": [],

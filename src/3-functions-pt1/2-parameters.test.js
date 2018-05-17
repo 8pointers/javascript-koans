@@ -53,12 +53,21 @@ describe('function parameters', function() {
     }
     expect(result).toBe(__);
   });
-  test('8 - should understand default parameters', function() {
+  test('8 - should understand arguments & fat-arrow functions', function() {
+    const outer = function() {
+      const getArguments = () => {
+        return arguments;
+      };
+      expect(getArguments(3, 4)).toEqual(__);
+    };
+    outer(1, 2);
+  });
+  test('9 - should understand default parameters', function() {
     const add = (a, b = 1) => a + b;
     expect(add(2, 3)).toBe(__);
     expect(add(2)).toBe(__);
   });
-  test('9 - should understand rest operator (...)', function() {
+  test('10 - should understand rest operator (...)', function() {
     const join = function(delimiter, ...args) {
       return args.join(delimiter);
     };

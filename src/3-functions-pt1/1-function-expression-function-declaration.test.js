@@ -1,7 +1,7 @@
 describe('function expression and function declaration', function() {
   test('1 - should understand function expression', function() {
     expect(typeof f).toBe(__);
-    const f = function() {
+    var f = function() {
       return 123;
     };
     const g = f;

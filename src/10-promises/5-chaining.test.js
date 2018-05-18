@@ -1,38 +1,40 @@
-describe('Chaining', function () {
-  const getResource = function (url) {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', url);
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 200 || xhr.status === 304) {
-            try {
-              resolve(JSON.parse(xhr.responseText));
-            } catch (e) {
-              reject(e);
-            }
-          } else {
-            reject(new Error('HTTP request failed'));
-          }
-        }
-      };
-      xhr.send();
+/**
+ * @jest-environment node
+ */
+const finalhandler = require('finalhandler');
+const http = require('http');
+const { promisify } = require('util');
+const serveStatic = require('serve-static');
+const fetch = require('node-fetch');
+
+describe('Chaining', function() {
+  let close;
+  beforeAll(function() {
+    const serve = serveStatic(__dirname);
+    const server = http.createServer(function onRequest(req, res) {
+      serve(req, res, finalhandler(req, res));
     });
+    server.listen(3005);
+    close = promisify(server.close);
+  });
+  afterAll(close);
+  const getResource = function(url) {
+    return fetch(`http://localhost:3005/${url}`).then(response =>
+      response.json()
+    );
   };
-  test('should understand chaining', function () {
+  test('should understand chaining', function() {
     return getResource('data/player/1.json')
       .then(player => player.name)
-      .then(result => expect(result).toBe(__))
-      .catch(reason => console.log('This should not be reached', reason));
+      .then(result => expect(result).toBe(__));
   });
-  test('should understand chaining 2', function () {
+  test('should understand chaining 2', function() {
     return getResource('data/leaderboard.json')
       .then(leaderboard => getResource(`data/player/${leaderboard[0]}.json`))
       .then(player => player.name)
-      .then(result => expect(result).toBe(__))
-      .catch(reason => console.log('This should not be reached', reason));
+      .then(result => expect(result).toBe(__));
   });
-  test('should understand chaining 2', function () {
+  test('should understand chaining 2', function() {
     return getResource('data/leaderboard.json')
       .then(leaderboard => getResource(`data/player/${leaderboard[5]}.json`))
       .then(player => player.name)

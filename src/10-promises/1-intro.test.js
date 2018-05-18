@@ -3,29 +3,30 @@
  */
 const finalhandler = require('finalhandler');
 const http = require('http');
+const { promisify } = require('util');
 const serveStatic = require('serve-static');
 const fetch = require('node-fetch');
 
-describe('Promises', function () {
-  let server;
-  beforeAll(function () {
+describe('Promises', function() {
+  let close;
+  beforeAll(function() {
     const serve = serveStatic(__dirname);
-    server = http.createServer(function onRequest(req, res) {
+    const server = http.createServer(function onRequest(req, res) {
       serve(req, res, finalhandler(req, res));
     });
-    server.listen(3000);
+    server.listen(3001);
+    close = promisify(server.close);
   });
-  afterAll(() => server.close());
+  afterAll(close);
 
-  test('should work', function() {
-    return fetch('http://localhost:3000/data/leaderboard.json')
+  test('1 - should understand then', function() {
+    return fetch('http://localhost:3001/data/leaderboard.json')
       .then(response => response.json())
       .then(leaderboard => expect(leaderboard).toEqual(__));
   });
-  test('should work', function() {
-    return fetch('http://localhost:3000/data/player/1.json')
+  test('2 - should understand then', function() {
+    return fetch('http://localhost:3001/data/player/1.json')
       .then(response => response.json())
       .then(leaderboard => expect(leaderboard).toEqual(__));
   });
 });
-

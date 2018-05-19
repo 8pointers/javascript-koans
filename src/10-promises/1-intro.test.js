@@ -24,12 +24,12 @@ describe('Promises', function() {
 
   test('1 - should understand then', function() {
     return getResource('data/leaderboard.json').then(leaderboard =>
-      expect(leaderboard).toEqual([5, 3, 2, 4, 1])
+      expect(leaderboard).toEqual(__)
     );
   });
   test('2 - should understand then', function() {
     return getResource('data/player/1.json').then(leaderboard =>
-      expect(leaderboard).toEqual({ name: 'Alice' })
+      expect(leaderboard).toEqual(__)
     );
   });
 });

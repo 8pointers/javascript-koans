@@ -8,18 +8,19 @@ const serveStatic = require('serve-static');
 const fetch = require('node-fetch');
 
 describe('Promise.all', function() {
+  const port = 3006;
   let close;
   beforeAll(function() {
     const serve = serveStatic(__dirname);
     const server = http.createServer(function onRequest(req, res) {
       serve(req, res, finalhandler(req, res));
     });
-    server.listen(3006);
-    close = promisify(server.close);
+    server.listen(port);
+    close = promisify(server.close.bind(server));
   });
-  afterAll(close);
+  afterAll(() => close());
   const getResource = url =>
-    fetch(`http://localhost:3006/${url}`).then(response => response.json());
+    fetch(`http://localhost:${port}/${url}`).then(response => response.json());
 
   test('should understand Promise.all', function() {
     return Promise.all([

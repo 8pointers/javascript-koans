@@ -8,21 +8,20 @@ const serveStatic = require('serve-static');
 const fetch = require('node-fetch');
 
 describe('Chaining', function() {
+  const port = 3005;
   let close;
   beforeAll(function() {
     const serve = serveStatic(__dirname);
     const server = http.createServer(function onRequest(req, res) {
       serve(req, res, finalhandler(req, res));
     });
-    server.listen(3005);
-    close = promisify(server.close);
+    server.listen(port);
+    close = promisify(server.close.bind(server));
   });
-  afterAll(close);
-  const getResource = function(url) {
-    return fetch(`http://localhost:3005/${url}`).then(response =>
-      response.json()
-    );
-  };
+  afterAll(() => close());
+  const getResource = url =>
+    fetch(`http://localhost:${port}/${url}`).then(response => response.json());
+
   test('should understand chaining', function() {
     return getResource('data/player/1.json')
       .then(player => player.name)

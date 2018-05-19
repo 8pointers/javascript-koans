@@ -8,25 +8,28 @@ const serveStatic = require('serve-static');
 const fetch = require('node-fetch');
 
 describe('Promises', function() {
+  const port = 3001;
   let close;
   beforeAll(function() {
     const serve = serveStatic(__dirname);
     const server = http.createServer(function onRequest(req, res) {
       serve(req, res, finalhandler(req, res));
     });
-    server.listen(3001);
-    close = promisify(server.close);
+    server.listen(port);
+    close = promisify(server.close.bind(server));
   });
-  afterAll(close);
+  afterAll(() => close());
+  const getResource = url =>
+    fetch(`http://localhost:${port}/${url}`).then(response => response.json());
 
   test('1 - should understand then', function() {
-    return fetch('http://localhost:3001/data/leaderboard.json')
-      .then(response => response.json())
-      .then(leaderboard => expect(leaderboard).toEqual(__));
+    return getResource('data/leaderboard.json').then(leaderboard =>
+      expect(leaderboard).toEqual([5, 3, 2, 4, 1])
+    );
   });
   test('2 - should understand then', function() {
-    return fetch('http://localhost:3001/data/player/1.json')
-      .then(response => response.json())
-      .then(leaderboard => expect(leaderboard).toEqual(__));
+    return getResource('data/player/1.json').then(leaderboard =>
+      expect(leaderboard).toEqual({ name: 'Alice' })
+    );
   });
 });

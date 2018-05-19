@@ -8,18 +8,19 @@ const serveStatic = require('serve-static');
 const fetch = require('node-fetch');
 
 describe('Promises', function() {
+  const port = 3011;
   let close;
   beforeAll(function() {
     const serve = serveStatic(__dirname);
     const server = http.createServer(function onRequest(req, res) {
       serve(req, res, finalhandler(req, res));
     });
-    server.listen(3011);
-    close = promisify(server.close);
+    server.listen(port);
+    close = promisify(server.close.bind(server));
   });
-  afterAll(close);
+  afterAll(() => close());
   const getResource = url =>
-    fetch(`http://localhost:3011/${url}`).then(response => response.json());
+    fetch(`http://localhost:${port}/${url}`).then(response => response.json());
 
   const getLeaderboard = () => getResource('data/leaderboard.json');
   const getPlayer = id => getResource(`data/player/${id}.json`);

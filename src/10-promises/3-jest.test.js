@@ -8,18 +8,19 @@ const serveStatic = require('serve-static');
 const fetch = require('node-fetch');
 
 describe('Simpler tests using jest', function() {
+  const port = 3003;
   let close;
   beforeAll(function() {
     const serve = serveStatic(__dirname);
     const server = http.createServer(function onRequest(req, res) {
       serve(req, res, finalhandler(req, res));
     });
-    server.listen(3003);
-    close = promisify(server.close);
+    server.listen(port);
+    close = promisify(server.close.bind(server));
   });
-  afterAll(close);
+  afterAll(() => close());
   const getResource = url =>
-    fetch(`http://localhost:3003/${url}`).then(response => response.json());
+    fetch(`http://localhost:${port}/${url}`).then(response => response.json());
 
   const leaderboardService = {
     getLeaderboard: function() {

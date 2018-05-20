@@ -1,36 +1,24 @@
 /**
  * @jest-environment node
  */
-const finalhandler = require('finalhandler');
-const http = require('http');
-const { promisify } = require('util');
-const serveStatic = require('serve-static');
 const fetch = require('node-fetch');
+const serve = require('./serve');
 
 describe('Simpler tests using jest', function() {
   const port = 3003;
-  let close;
-  beforeAll(function() {
-    const serve = serveStatic(__dirname);
-    const server = http.createServer(function onRequest(req, res) {
-      serve(req, res, finalhandler(req, res));
-    });
-    server.listen(port);
-    close = promisify(server.close.bind(server));
-  });
-  afterAll(() => close());
-  const getResource = url =>
+  serve(port);
+  const get = url =>
     fetch(`http://localhost:${port}/${url}`).then(response => response.json());
 
   const leaderboardService = {
     getLeaderboard: function() {
-      return getResource('data/leaderboard.json');
+      return get('data/leaderboard.json');
     },
     getLeaderboardBadJSON: function() {
-      return getResource('data/leaderboard-bad-json.json');
+      return get('data/leaderboard-bad-json.json');
     },
     getLeaderboard404: function() {
-      return getResource('data/leaderboard-404.json');
+      return get('data/leaderboard-404.json');
     }
   };
   test('1 - should understand testing resolved promises', function() {

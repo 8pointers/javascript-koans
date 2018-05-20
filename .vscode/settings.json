@@ -2,7 +2,5 @@
   "[javascript]": {
     "editor.formatOnSave": true
   },
-  "jest.enableCodeLens": true,
-  "jest.enableInlineErrorMessages": false,
-  "jest.runAllTestsFirst": false
+  "jest.enableInlineErrorMessages": false
 }

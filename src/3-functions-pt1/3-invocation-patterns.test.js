@@ -159,7 +159,7 @@ describe('Invocation patterns', function() {
           this.name = name;
         }
       };
-      var setName = person.setName;
+      const setName = person.setName;
 
       setName('Second');
 

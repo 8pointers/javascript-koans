@@ -1,6 +1,6 @@
 describe('log (just so you can pick-up some ideas for the next one)', function() {
   Function.prototype.log = function(logName) {
-    var fn = this;
+    const fn = this;
     return function(...args) {
       console.log.apply(console, [logName, ...args]);
       return fn.apply(undefined, args);

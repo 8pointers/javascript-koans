@@ -33,5 +33,4 @@ To run all the tests from command line:
 npm test
 ````
 
-If you are using Visual Studio Code, vscode-jest should work out-of-the-box.
-
+If you are using Visual Studio Code, [vscode-jest](https://github.com/jest-community/vscode-jest) should work out-of-the-box.

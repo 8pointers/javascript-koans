@@ -1,34 +1,35 @@
-// prettier-ignore
-const GameOfLife = function() {
-  const isAlive = {};
-  const cellKey = (row, column) => `${row}_${column}`;
-  this.isCellAlive = (row, column) => !!isAlive[cellKey(row, column)];
-  this.toggleCellState = (row, column) => {
-    const key = cellKey(row, column);
-    if (isAlive[key]) {
-      delete isAlive[key];
-    } else {
-      isAlive[key] = true;
-    }
-    return this;
-  };
-  this.tick = () => {
-    const numberOfNeighbours = {};
-    for (const key in isAlive) {
-      const [row, column] = key.split('_').map(p => parseInt(p, 10));
-      numberOfNeighbours[key] = numberOfNeighbours[key] || 0;
-      [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]].forEach(function(offset) {
-        const neighbourKey = cellKey(row + offset[0], column + offset[1]);
-        numberOfNeighbours[neighbourKey] = (numberOfNeighbours[neighbourKey] || 0) + 1;
-      });
-    }
-    for (const key in numberOfNeighbours) {
-      if (isAlive[key] && (numberOfNeighbours[key] < 2 || numberOfNeighbours[key] > 3) || !isAlive[key] && numberOfNeighbours[key] === 3) {
-        const [row, column] = key.split('_').map(p => parseInt(p, 10));
-        this.toggleCellState(row, column);
-      }
-    }
-  };
-};
+const cellKey = ({ row, column }) => `${row}_${column}`;
 
-export default GameOfLife;
+// prettier-ignore
+const deltas = Array.from({ length: 9 }, (_, i) => [Math.floor(i / 3) - 1, i % 3 - 1, i === 4 ? 0 : 1]);
+
+export default class GameOfLife {
+  constructor() {
+    this.state = {};
+  }
+
+  isCellAlive(row, column) {
+    return !!this.state[cellKey({ row, column })];
+  }
+
+  toggleCellState(row, column) {
+    const key = cellKey({ row, column });
+    const { [key]: isAlive, ...result } = this.state;
+    this.state = isAlive ? result : { [key]: true, ...result };
+    return this;
+  }
+
+  // prettier-ignore
+  tick() {
+    const { state } = this;
+    const neighbours = Object.keys(state)
+      .map(k => k.split('_').map(p => parseInt(p, 10)))
+      .map(([r, c]) => deltas.map(([dr, dc, dn]) => [r + dr, c + dc, dn]))
+      .reduce((result, current) => [...result, ...current], [])
+      .map(([row, column, dn]) => [`${row}_${column}`, dn])
+      .reduce((result, [k, dn]) => ({ ...result, [k]: (result[k] || 0) + dn }), {});
+    this.state = Object.keys(neighbours)
+      .filter(k => (state[k] && neighbours[k] === 2) || neighbours[k] === 3)
+      .reduce((result, key) => ({ ...result, [key]: true }), {});
+  }
+}

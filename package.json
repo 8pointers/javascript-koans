@@ -20,8 +20,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "6.26.3",
-    "babel-jest": "23.6.0",
     "babel-preset-env": "1.7.0",
     "clean-webpack-plugin": "0.1.19",
     "css-loader": "1.0.0",
@@ -38,6 +36,7 @@
     "webpack-dev-server": "3.1.9"
   },
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "jquery": "3.3.1",
     "jquery-ui-dist": "1.12.1"
   }

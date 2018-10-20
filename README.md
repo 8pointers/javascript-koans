@@ -17,8 +17,8 @@ JavaScript Koans - exercises for my JavaScript workshop.
 Prerequisites
 ---
 
-- NodeJS 10.1.0 or newer
-- npm 5.6.0 or newer
+- NodeJS 10.12.0 or newer
+- npm 6.4.1 or newer
 
 How to run it
 ---

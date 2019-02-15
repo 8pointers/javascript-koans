@@ -1,5 +1,4 @@
-JavaScript Koans
-===
+# JavaScript Koans
 
 JavaScript Koans - exercises for my JavaScript workshop.
 
@@ -14,23 +13,26 @@ JavaScript Koans - exercises for my JavaScript workshop.
 - Promises
 - Redux
 
-Prerequisites
----
+## Prerequisites
 
-- NodeJS 10.12.0 or newer
-- npm 6.4.1 or newer
+- git client
+- NodeJS 10.15.1+ & NPM 6.4.1+
+- Recommended Visual Studio Code extensions:
+  - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+  - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  - [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)
+  - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-How to run it
----
+## How to run it
 
-````
+```bash
+git clone https://github.com/8pointers/JavaScript-Koans.git koans
+cd koans
 npm install
-````
+```
 
 To run all the tests from command line:
 
-````
+```bash
 npm test
-````
-
-If you are using Visual Studio Code, [vscode-jest](https://github.com/jest-community/vscode-jest) should work out-of-the-box.
+```

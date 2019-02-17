@@ -20,27 +20,66 @@
   "author": "Damjan Vujnovic",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@babel/core": "7.2.2",
+    "@babel/core": "7.3.3",
     "@babel/preset-env": "7.3.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "24.1.0",
     "babel-loader": "8.0.5",
     "clean-webpack-plugin": "1.0.1",
     "css-loader": "2.1.0",
-    "eslint": "5.13.0",
+    "eslint": "5.14.0",
     "eslint-config-8pointers": "1.0.0",
+    "eslint-config-prettier": "4.0.0",
     "html-webpack-plugin": "3.2.0",
     "jest": "24.1.0",
     "node-fetch": "2.3.0",
     "prettier": "1.16.4",
     "serve-static": "1.13.2",
     "style-loader": "0.23.1",
-    "webpack": "4.29.3",
+    "webpack": "4.29.4",
     "webpack-cli": "3.2.3",
     "webpack-dev-server": "3.1.14"
   },
   "dependencies": {
     "jquery": "3.3.1",
     "jquery-ui-dist": "1.12.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "jest": true,
+      "node": true
+    },
+    "extends": [
+      "eslint-config-8pointers",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "ecmaFeatures": {
+        "modules": true,
+        "experimentalObjectRestSpread": true
+      },
+      "sourceType": "module"
+    },
+    "globals": {
+      "__": false
+    },
+    "rules": {
+      "consistent-this": [
+        "error",
+        "fn",
+        "self"
+      ]
+    }
+  },
+  "prettier": {
+    "printWidth": 140,
+    "singleQuote": true
   }
 }

@@ -1,23 +1,22 @@
-// prettier-ignore
-const observable = function(base) {
+const observable = base => {
   const listeners = [];
-  base.addEventListener = function(type, listener, priority) {
+  base.addEventListener = (type, listener, priority) => {
     if (!listener) {
       listener = type;
       type = 'default';
     }
-    listeners.push({type, listener, priority});
+    listeners.push({ type, listener, priority });
   };
   base.listener = () => listeners[0].listener;
-  base.dispatchEvent = function(eventType, ...args) {
+  base.dispatchEvent = (eventType, ...args) => {
     if (!args.length) {
       args = [eventType];
       eventType = 'default';
     }
     listeners
-      .filter(({type}) => type === eventType)
-      .sort(({priority: priorityOne}, {priority: priorityTwo}) => priorityTwo - priorityOne)
-      .some(({listener}) => {
+      .filter(({ type }) => type === eventType)
+      .sort((l1, l2) => l2.priority - l1.priority)
+      .some(({ listener }) => {
         try {
           return listener(...args) === false;
         } catch (error) {
@@ -25,10 +24,10 @@ const observable = function(base) {
         }
       });
   };
-  base.createObservableProperty = function(propertyName) {
+  base.createObservableProperty = propertyName => {
     let propertyValue;
     base[`on${propertyName}Changed`] = base.addEventListener.bind(base, `${propertyName}Changed`);
-    base[`set${propertyName}`] = value => base.dispatchEvent(`${propertyName}Changed`, propertyValue = value);
+    base[`set${propertyName}`] = value => base.dispatchEvent(`${propertyName}Changed`, (propertyValue = value));
     base[`get${propertyName}`] = () => propertyValue;
   };
   return base;

@@ -1,7 +1,6 @@
 const cellKey = (row, column) => `${row}_${column}`;
 
-// prettier-ignore
-const deltas = Array.from({ length: 9 }, (_, i) => [Math.floor(i / 3) - 1, i % 3 - 1, i === 4 ? 0 : 1]);
+const deltas = Array.from({ length: 9 }, (_, i) => [Math.floor(i / 3) - 1, (i % 3) - 1, i === 4 ? 0 : 1]);
 
 export default class GameOfLife {
   constructor() {
@@ -19,7 +18,6 @@ export default class GameOfLife {
     return this;
   }
 
-  // prettier-ignore
   tick() {
     const { state } = this;
     const neighbours = Object.keys(state)

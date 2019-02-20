@@ -8,14 +8,6 @@
     "start": "webpack-dev-server --open",
     "build": "webpack"
   },
-  "jest": {
-    "globals": {
-      "__": "Fill this in so that the test is passing"
-    },
-    "transform": {
-      "1-intro|2-objects|6-functions|7-oop|8-observable|11-redux": "babel-jest"
-    }
-  },
   "keywords": [],
   "author": "Damjan Vujnovic",
   "license": "UNLICENSED",
@@ -76,6 +68,14 @@
         "fn",
         "self"
       ]
+    }
+  },
+  "jest": {
+    "globals": {
+      "__": "Fill this in so that the test is passing"
+    },
+    "transform": {
+      "1-intro|2-objects|6-functions|7-oop|8-observable|11-redux": "babel-jest"
     }
   },
   "prettier": {

@@ -66,11 +66,18 @@ describe('function parameters', function() {
     const add = (a, b = 1) => a + b;
     expect(add(2, 3)).toBe(__);
     expect(add(2)).toBe(__);
+    expect(add(2, undefined)).toBe(__);
+    expect(add(2, 0)).toBe(__);
+    // compare with 2nd spec - what's the difference?
   });
   test('10 - should understand rest operator (...)', function() {
     const join = function(delimiter, ...args) {
       return args.join(delimiter);
     };
     expect(join('.', 192, 168, 0, 1)).toBe(__);
+  });
+  test('11 - should understand destructuring parameters', function() {
+    const greet = ({ firstName, lastName }) => `Hello ${firstName} ${lastName}!`;
+    expect(greet({ fistName: 'Myamoto', lastName: 'Musashi', age: 23 })).toBe(__);
   });
 });

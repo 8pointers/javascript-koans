@@ -88,4 +88,34 @@ describe('prototype', function() {
     expect(parentScope.address.street).toBe(__);
     expect(childScope.address.street).toBe(__);
   });
+  test('7 - somewhat like classes - methods, "super", inheritance...', function() {
+    const Person = function(name) {
+      this.name = name;
+    };
+    Person.prototype.getName = function() {
+      return this.name;
+    };
+    Person.prototype.setName = function(name) {
+      this.name = name;
+    };
+    const Samurai = function(name, weapon) {
+      Person.call(this, name);
+      this.weapon = weapon;
+    };
+
+    // Option 1:
+    const T = function() {};
+    T.prototype = Person.prototype;
+    Samurai.prototype = new T();
+    // Option 2:
+    // Samurai.prototype = new Person();
+
+    Samurai.prototype.useWeapon = function() {
+      return `${this.name} is now using ${this.weapon}!`;
+    };
+    const samurai = new Samurai('Myamoto', 'katana');
+    expect(samurai.getName()).toBe(__);
+    samurai.setName('Hattori');
+    expect(samurai.useWeapon()).toBe(__);
+  });
 });

@@ -28,6 +28,9 @@ describe('Enumerating properties', function() {
     expect(enumerableProperties).toBe(__);
   });
   test('2 - should understand Object.keys', function() {
+    const toString = function() {
+      return 'I am a Samurai!';
+    };
     const samurai = {
       name: 'Myamoto',
       age: 32,
@@ -35,10 +38,10 @@ describe('Enumerating properties', function() {
         street: 'Samurai Way',
         postcode: '18+'
       },
-      toString: function() {
-        return 'I am a Samurai!';
-      }
+      toString
     };
     expect(Object.keys(samurai)).toEqual(__);
+    expect(Object.values(samurai)).toEqual(__);
+    expect(Object.entries(samurai)).toEqual(__);
   });
 });

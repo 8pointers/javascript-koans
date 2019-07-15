@@ -78,6 +78,6 @@ describe('function parameters', function() {
   });
   test('11 - should understand destructuring parameters', function() {
     const greet = ({ firstName, lastName }) => `Hello ${firstName} ${lastName}!`;
-    expect(greet({ fistName: 'Myamoto', lastName: 'Musashi', age: 23 })).toBe(__);
+    expect(greet({ firstName: 'Myamoto', lastName: 'Musashi', age: 23 })).toBe(__);
   });
 });

@@ -58,7 +58,7 @@ describe('function parameters', function() {
       const getArguments = () => {
         return arguments;
       };
-      expect(getArguments(3, 4)).toEqual(__);
+      expect(getArguments(3, 4)).toMatchObject(__);
     };
     outer(1, 2);
   });

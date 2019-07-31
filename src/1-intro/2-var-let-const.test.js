@@ -8,7 +8,7 @@ describe('var, let & const', function() {
     }
     expect(a).toBe(__);
   });
-  test('should understand let', function() {
+  test('should understand let 1', function() {
     let a = 1;
     expect(a).toBe(__);
     if (a) {
@@ -17,7 +17,7 @@ describe('var, let & const', function() {
     }
     expect(a).toBe(__);
   });
-  test('should understand const', function() {
+  test('should understand const 1', function() {
     const a = 1;
     expect(a).toBe(__);
     if (a) {
@@ -26,13 +26,13 @@ describe('var, let & const', function() {
     }
     expect(a).toBe(__);
   });
-  test('should understand let', function() {
+  test('should understand let 2', function() {
     let a = 1;
     expect(a).toBe(__);
     a = 2;
     expect(a).toBe(__);
   });
-  test('should understand const', function() {
+  test('should understand const 2', function() {
     const a = 1;
     expect(a).toBe(__);
     try {
@@ -42,7 +42,7 @@ describe('var, let & const', function() {
     }
     expect(a).toBe(__);
   });
-  test('should understand const', function() {
+  test('should understand const 3', function() {
     const a = { name: 'Myamoto' };
     a.name = 'Hattori';
     expect(a).toEqual(__);

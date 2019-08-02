@@ -17,7 +17,7 @@ describe('observable', function() {
 
     expect(underTest.listener()).toEqual(listener);
   });
-  test('should use dispatchEvent to invoke registered listener', function() {
+  test('should use dispatchEvent to invoke registered listener 1', function() {
     const underTest = observable({});
     let result;
     const listener = function(argument) {
@@ -30,7 +30,7 @@ describe('observable', function() {
     expect(result).toBe('listenerInvoked with: argument');
   });
   //Same test, but using a spy
-  test('should use dispatchEvent to invoke registered listener', function() {
+  test('should use dispatchEvent to invoke registered listener 2', function() {
     const underTest = observable({});
     const listener = jest.fn().mockName('listener');
     underTest.addEventListener(listener);

@@ -33,7 +33,7 @@
     "webpack-dev-server": "3.9.0"
   },
   "dependencies": {
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "jquery-ui-dist": "1.12.1",
     "react": "16.11.0",
     "react-dom": "16.11.0"

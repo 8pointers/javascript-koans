@@ -24,7 +24,7 @@
     "eslint-plugin-react": "7.16.0",
     "html-webpack-plugin": "3.2.0",
     "jest": "24.9.0",
-    "node-fetch": "2.6.0",
+    "node-fetch": "2.6.1",
     "prettier": "1.18.2",
     "serve-static": "1.14.1",
     "style-loader": "1.0.0",

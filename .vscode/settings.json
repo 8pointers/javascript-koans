@@ -1,4 +1,6 @@
 {
   "editor.formatOnSave": true,
-  "jest.enableInlineErrorMessages": false
+  "jest.enableInlineErrorMessages": false,
+  "editor.fontSize": 24,
+  "terminal.integrated.fontSize": 24
 }

@@ -16,7 +16,7 @@ JavaScript Koans - exercises for my JavaScript workshop.
 ## Prerequisites
 
 - git client
-- NodeJS 14.16.1+ (NodeJS 16.0.0+ should also be ok)
+- NodeJS 16.0.0+ & NPM 7.10.0+
 - Recommended Visual Studio Code extensions:
   - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)

@@ -51,9 +51,7 @@
       "node": true
     },
     "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:prettier/recommended"
+      "eslint:recommended"
     ],
     "parserOptions": {
       "ecmaVersion": 2018,

@@ -37,15 +37,22 @@ const GameOfLife = function() {
   };
 };
 
-// prettier-ignore
-jQuery.fn.gameOfLifeWidget = function(gameOfLife, rows, columns, animationDuration) {
-  return this.each(function() {
+jQuery.fn.gameOfLifeWidget = function (gameOfLife, rows, columns, animationDuration) {
+  return this.each(function () {
     const widgetRoot = jQuery(this);
-    widgetRoot.find('.tick').click(gameOfLife.tick);
-    widgetRoot.find('.grid td').each(function(index) {
-      jQuery(this).click(() => gameOfLife.toggleCellState(Math.floor(index / columns), index % columns));
+    widgetRoot.html(`
+      <table class="grid">
+        ${Array.from({ length: rows }, () => ['<tr>', ...Array.from({ length: columns }, () => '<td></td>'), '</tr>'])
+          .flat()
+          .join('')}
+      </table>
+      <input type="button" class="tick" value="tick" />
+    `);
+    widgetRoot.find('.tick').on('click', gameOfLife.tick);
+    widgetRoot.find('.grid td').each(function (index) {
+      jQuery(this).on('click', () => gameOfLife.toggleCellState(Math.floor(index / columns), index % columns));
     });
-    gameOfLife.addEventListener('cellStateChanged', function(row, column, isCellAlive) {
+    gameOfLife.addEventListener('cellStateChanged', function (row, column, isCellAlive) {
       widgetRoot.find(`tr:nth-child(${row + 1}) td:nth-child(${column + 1})`).toggleClass('alive', isCellAlive, animationDuration);
     });
   });

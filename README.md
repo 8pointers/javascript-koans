@@ -31,7 +31,20 @@ cd koans
 npm install
 ```
 
-To run all the tests from command line:
+### To run a single test from the command line
+ 
+first install jest globally: ```npm install -g jest```.  Then run the test file with jest:
+
+```bash
+jest path/to/file.test.js
+```
+or
+```bash
+cd path/to
+jest file.test.js
+```
+
+### To run all the tests from command line
 
 ```bash
 npm test

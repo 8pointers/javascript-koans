@@ -1,6 +1,6 @@
 {
   "name": "Advanced JavaScript Workshop Exercises",
-  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:16-bullseye",
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:18-bullseye",
   "settings": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
@@ -28,15 +28,6 @@
   ],
   "containerEnv": {
     "CHOKIDAR_USEPOLLING": "true"
-  },
-  "forwardPorts": [
-    3000
-  ],
-  "portsAttributes": {
-    "3000": {
-      "label": "Advanced JavaScript Workshop Exercises",
-      "onAutoForward": "notify"
-    }
   },
   "remoteUser": "node",
   "mounts": [

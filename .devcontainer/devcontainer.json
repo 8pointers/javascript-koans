@@ -6,7 +6,7 @@
     "editor.formatOnSave": true,
     "jest.enableCodeLens": true,
     "jest.jestCommandLine": "npm run-script test --",
-    "jest.rootPath": "",
+    "jest.rootPath": "src",
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.profiles.linux": {
       "zsh": {

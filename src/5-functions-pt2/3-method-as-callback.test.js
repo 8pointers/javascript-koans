@@ -1,6 +1,6 @@
 describe('Functions - method as a callback', function () {
   beforeEach(function () {
-    window.name = 'window name';
+    global.name = 'global name';
   });
   test('0 - warmup (a brief refresh on invocation patterns)', function () {
     const model = {
@@ -12,7 +12,7 @@ describe('Functions - method as a callback', function () {
     const fn = model.setName;
     fn('new name');
     expect(model.name).toBe(__);
-    expect(window.name).toBe(__);
+    expect(global.name).toBe(__);
   });
   const createModel1 = function () {
     const result = {
@@ -30,7 +30,7 @@ describe('Functions - method as a callback', function () {
     const model = createModel1();
     simulateAjax(model.setName);
     expect(model.name).toBe(__);
-    expect(window.name).toBe(__);
+    expect(global.name).toBe(__);
   });
   test('2 - should understand how to manually enforce scope', function () {
     const model = createModel1();
@@ -38,13 +38,13 @@ describe('Functions - method as a callback', function () {
       model.setName(name);
     });
     expect(model.name).toBe(__);
-    expect(window.name).toBe(__);
+    expect(global.name).toBe(__);
   });
   test('3 - should understand how to use bind to enforce scope', function () {
     const model = createModel1();
     simulateAjax(model.setName.bind(model));
     expect(model.name).toBe(__);
-    expect(window.name).toBe(__);
+    expect(global.name).toBe(__);
   });
   test('4 - should understand the consequences of not using this keyword to access own properties', function () {
     const createModel2 = function () {
@@ -61,7 +61,7 @@ describe('Functions - method as a callback', function () {
     simulateAjax(model.setName);
 
     expect(model.name).toBe(__);
-    expect(window.name).toBe(__);
+    expect(global.name).toBe(__);
   });
   /*
   discuss with your pair:
@@ -79,7 +79,7 @@ describe('Functions - method as a callback', function () {
     simulateAjax(model.setName);
 
     expect(model.name).toBe(__);
-    expect(window.name).toBe(__);
+    expect(global.name).toBe(__);
   });
   test('6 - should understand passing a method as callback', function () {
     const CreateModel4 = function () {
@@ -94,7 +94,7 @@ describe('Functions - method as a callback', function () {
     simulateAjax(model.setName);
 
     expect(model.name).toBe(__);
-    expect(window.name).toBe(__);
+    expect(global.name).toBe(__);
   });
   test('7 - should understand passing a method as callback', function () {
     const CreateModel5 = function () {};
@@ -107,7 +107,7 @@ describe('Functions - method as a callback', function () {
     simulateAjax(model.setName);
 
     expect(model.name).toBe(__);
-    expect(window.name).toBe(__);
+    expect(global.name).toBe(__);
   });
   test('8 - should understand passing a method as callback', function () {
     class CreateModel6 {
@@ -125,6 +125,6 @@ describe('Functions - method as a callback', function () {
       expect(e).toEqual(__);
     }
     expect(model.name).toBe(__);
-    expect(window.name).toBe(__);
+    expect(global.name).toBe(__);
   });
 });

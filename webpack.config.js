@@ -1,7 +1,7 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+const config = {
   mode: 'development',
   plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin({ template: 'src/index.html' })],
   module: {
@@ -23,3 +23,5 @@ module.exports = {
     ],
   },
 };
+
+export default config;

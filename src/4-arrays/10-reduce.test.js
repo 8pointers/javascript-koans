@@ -9,7 +9,10 @@ describe('Array.prototype.reduce', function () {
       { accountId: 1, amount: 60 },
       { accountId: 5, amount: 70 },
     ];
-    const result = transactions.reduce((acc, { accountId, amount }) => ({ ...acc, [accountId]: (acc[accountId] || 0) + amount }), {});
+    const result = transactions.reduce(
+      (acc, { accountId, amount }) => ({ ...acc, [accountId]: (acc[accountId] || 0) + amount }),
+      {}
+    );
     expect(result).toEqual(__);
   });
   test('2 - should understand reduce', function () {

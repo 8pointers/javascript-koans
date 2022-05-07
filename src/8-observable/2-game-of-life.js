@@ -1,13 +1,12 @@
 import jQuery from 'jquery';
 import observable from './1-observable';
 
-// prettier-ignore
-const GameOfLife = function() {
+const GameOfLife = function () {
   const self = this;
   const isAlive = {};
   const cellKey = (row, column) => `${row}_${column}`;
   this.isCellAlive = (row, column) => !!isAlive[cellKey(row, column)];
-  this.toggleCellState = function(row, column) {
+  this.toggleCellState = function (row, column) {
     const key = cellKey(row, column);
     if (isAlive[key]) {
       delete isAlive[key];
@@ -16,28 +15,31 @@ const GameOfLife = function() {
     }
     return this;
   };
-  this.tick = function() {
+  this.tick = function () {
     const numberOfNeighbours = {};
     for (const key in isAlive) {
-      const [row, column] = key.split('_').map(p => parseInt(p, 10));
+      const [row, column] = key.split('_').map((p) => parseInt(p, 10));
       numberOfNeighbours[key] = numberOfNeighbours[key] || 0;
-      [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]].forEach(function(offset) {
+      // prettier-ignore
+      [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]].forEach(function (offset) {
         const neighbourKey = cellKey(row + offset[0], column + offset[1]);
         numberOfNeighbours[neighbourKey] = (numberOfNeighbours[neighbourKey] || 0) + 1;
       });
     }
     for (const key in numberOfNeighbours) {
-      if (isAlive[key] && (numberOfNeighbours[key] < 2 || numberOfNeighbours[key] > 3) || !isAlive[key] && numberOfNeighbours[key] === 3) {
-        const [row, column] = key.split('_').map(p => parseInt(p, 10));
+      if (
+        (isAlive[key] && (numberOfNeighbours[key] < 2 || numberOfNeighbours[key] > 3)) ||
+        (!isAlive[key] && numberOfNeighbours[key] === 3)
+      ) {
+        const [row, column] = key.split('_').map((p) => parseInt(p, 10));
         self.toggleCellState(row, column);
       }
     }
   };
 };
 
-// prettier-ignore
-jQuery.fn.gameOfLifeWidget = function(gameOfLife, rows, columns, animationDuration) {
-  return this.each(function() {
+jQuery.fn.gameOfLifeWidget = function (gameOfLife, rows, columns, animationDuration) {
+  return this.each(function () {
     const widgetRoot = jQuery(this);
     //TODO
   });

@@ -1,4 +1,4 @@
-const observable = base => {
+const observable = (base) => {
   const listeners = [];
   base.addEventListener = (type, listener, priority) => {
     if (!listener) {
@@ -24,10 +24,10 @@ const observable = base => {
         }
       });
   };
-  base.createObservableProperty = propertyName => {
+  base.createObservableProperty = (propertyName) => {
     let propertyValue;
     base[`on${propertyName}Changed`] = base.addEventListener.bind(base, `${propertyName}Changed`);
-    base[`set${propertyName}`] = value => base.dispatchEvent(`${propertyName}Changed`, (propertyValue = value));
+    base[`set${propertyName}`] = (value) => base.dispatchEvent(`${propertyName}Changed`, (propertyValue = value));
     base[`get${propertyName}`] = () => propertyValue;
   };
   return base;

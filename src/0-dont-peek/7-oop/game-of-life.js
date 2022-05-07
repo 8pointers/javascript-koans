@@ -21,13 +21,13 @@ export default class GameOfLife {
   tick() {
     const { state } = this;
     const neighbours = Object.keys(state)
-      .map(k => k.split('_').map(p => parseInt(p, 10)))
+      .map((k) => k.split('_').map((p) => parseInt(p, 10)))
       .map(([r, c]) => deltas.map(([dr, dc, dn]) => [r + dr, c + dc, dn]))
       .reduce((result, current) => [...result, ...current], [])
       .map(([row, column, dn]) => [cellKey(row, column), dn])
       .reduce((result, [k, dn]) => ({ ...result, [k]: (result[k] || 0) + dn }), {});
     this.state = Object.keys(neighbours)
-      .filter(k => (state[k] && neighbours[k] === 2) || neighbours[k] === 3)
+      .filter((k) => (state[k] && neighbours[k] === 2) || neighbours[k] === 3)
       .reduce((result, key) => ({ ...result, [key]: true }), {});
   }
 }

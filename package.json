@@ -9,6 +9,7 @@
     "start": "webpack serve --live-reload --open",
     "build": "webpack"
   },
+  "type": "module",
   "keywords": [],
   "author": "Damjan Vujnovic",
   "license": "UNLICENSED",
@@ -90,7 +91,7 @@
     }
   },
   "prettier": {
-    "printWidth": 140,
+    "printWidth": 120,
     "singleQuote": true
   }
 }

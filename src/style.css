@@ -3,11 +3,11 @@ body {
 }
 
 td {
-  background-color: #E0C020;
+  background-color: #e0c020;
   width: 16px;
   height: 16px;
 }
 
 td.alive {
-  background-color: #4040C0;
+  background-color: #4040c0;
 }

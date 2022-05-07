@@ -1,17 +1,16 @@
-// prettier-ignore
 const createStore = (reducer, initialState) => {
   let state = initialState || reducer(undefined, {});
   let listeners = [];
   return {
     getState: () => state,
-    dispatch: action => {
+    dispatch: (action) => {
       state = reducer(state, action);
-      listeners.forEach(listener => listener());
+      listeners.forEach((listener) => listener());
     },
-    subscribe: listener => {
+    subscribe: (listener) => {
       listeners.push(listener);
-      return () => listeners = listeners.filter(l => l !== listener);
-    }
+      return () => (listeners = listeners.filter((l) => l !== listener));
+    },
   };
 };
 

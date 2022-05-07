@@ -26,7 +26,6 @@
     "eslint-plugin-react": "7.29.4",
     "html-webpack-plugin": "5.5.0",
     "jest": "28.1.0",
-    "node-fetch": "2.6.1",
     "prettier": "2.6.2",
     "serve-static": "1.15.0",
     "style-loader": "3.3.1",
@@ -87,7 +86,7 @@
       "__": "Fill this in so that the test is passing"
     },
     "transform": {
-      "1-intro|2-objects|6-functions|7-oop|8-observable|11-redux": "babel-jest"
+      "1-intro|2-objects|6-functions|7-oop|8-observable|10-promises|11-redux": "babel-jest"
     }
   },
   "prettier": {

@@ -1,8 +1,4 @@
-/**
- * @jest-environment node
- */
-const fetch = require('node-fetch');
-const serve = require('./serve');
+import serve from './serve';
 
 describe('Simpler tests using jest', function () {
   const port = 3003;

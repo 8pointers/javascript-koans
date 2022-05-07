@@ -1,7 +1,7 @@
-const finalhandler = require('finalhandler');
-const http = require('http');
-const { promisify } = require('util');
-const serveStatic = require('serve-static');
+import finalhandler from 'finalhandler';
+import http from 'http';
+import { promisify } from 'util';
+import serveStatic from 'serve-static';
 
 const serve = function (port) {
   beforeAll(function () {

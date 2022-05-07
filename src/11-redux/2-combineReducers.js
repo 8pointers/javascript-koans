@@ -1,4 +1,4 @@
-const combineReducers = function() {
+const combineReducers = function () {
   //TODO - Implement one test at a time
 };
 

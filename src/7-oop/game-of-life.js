@@ -1,4 +1,4 @@
-const GameOfLife = function() {
+const GameOfLife = function () {
   //TODO - Implement one test at a time
 };
 

@@ -21,7 +21,7 @@ beforeEach(() => {
 test('Should understand the shape of the state tree', () => {
   expect(store.getState()).toEqual({
     counter: 0,
-    visibility: true
+    visibility: true,
   });
 });
 test('Should understand INCREMENT action', () => {
@@ -29,7 +29,7 @@ test('Should understand INCREMENT action', () => {
 
   expect(store.getState()).toEqual({
     counter: 1,
-    visibility: true
+    visibility: true,
   });
 });
 test('Should understand TOGGLE action', () => {
@@ -37,6 +37,6 @@ test('Should understand TOGGLE action', () => {
 
   expect(store.getState()).toEqual({
     counter: 0,
-    visibility: false
+    visibility: false,
   });
 });

@@ -1,13 +1,13 @@
-describe('Promise.race', function() {
-  const delay = timeInMillis => new Promise(resolve => setTimeout(resolve, timeInMillis));
-  test('should understand Promise.race 1', function() {
+describe('Promise.race', function () {
+  const delay = (timeInMillis) => new Promise((resolve) => setTimeout(resolve, timeInMillis));
+  test('should understand Promise.race 1', function () {
     //prettier-ignore
     return Promise.race([
       delay(200).then(() => 'first'),
       delay(100).then(() => 'second')
     ]).then(result => expect(result).toBe(__));
   });
-  test('should understand Promise.race 2', function() {
+  test('should understand Promise.race 2', function () {
     //prettier-ignore
     return Promise.race([
       delay(100).then(() => 'first'),

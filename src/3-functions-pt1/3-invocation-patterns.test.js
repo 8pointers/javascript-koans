@@ -1,32 +1,32 @@
-describe('Invocation patterns', function() {
+describe('Invocation patterns', function () {
   let storedThis;
   let aFunction;
   let samurai;
-  beforeEach(function() {
+  beforeEach(function () {
     storedThis = undefined;
-    aFunction = function() {
+    aFunction = function () {
       storedThis = this;
     };
     samurai = {
-      aMethod: aFunction
+      aMethod: aFunction,
     };
   });
-  describe('method', function() {
-    test('1 - should understand method invocation pattern', function() {
+  describe('method', function () {
+    test('1 - should understand method invocation pattern', function () {
       samurai.aMethod();
       expect(storedThis).toBe(__);
     });
-    test('2 - should understand method invocation pattern', function() {
+    test('2 - should understand method invocation pattern', function () {
       const samurai2 = {
-        aMethod: samurai.aMethod
+        aMethod: samurai.aMethod,
       };
       samurai2.aMethod();
       expect(storedThis).toBe(__);
     });
-    test('3 - should understand method invocation pattern', function() {
+    test('3 - should understand method invocation pattern', function () {
       const samurai2 = {
         samurai: samurai,
-        aMethod: samurai.aMethod
+        aMethod: samurai.aMethod,
       };
       samurai2.samurai.aMethod();
       expect(storedThis).toBe(__);
@@ -35,19 +35,19 @@ describe('Invocation patterns', function() {
     });
   });
 
-  describe('function', function() {
-    test('4 - should understand function invocation pattern', function() {
+  describe('function', function () {
+    test('4 - should understand function invocation pattern', function () {
       aFunction();
       expect(storedThis).toBe(__);
     });
-    test('5 - should understand function invocation pattern', function() {
+    test('5 - should understand function invocation pattern', function () {
       //try and decipher this for bonus points
-      const result = (function() {
+      const result = (function () {
         return this;
       })();
       expect(result).toBe(__);
     });
-    test('6 - should understand function invocation pattern', function() {
+    test('6 - should understand function invocation pattern', function () {
       const myMethod = samurai.aMethod;
       aFunction();
       expect(storedThis).toBe(__);
@@ -56,9 +56,9 @@ describe('Invocation patterns', function() {
       myMethod();
       expect(storedThis).toBe(__);
     });
-    test('7 - should understand strict mode', function() {
+    test('7 - should understand strict mode', function () {
       let storedThis;
-      const strictMethod = function() {
+      const strictMethod = function () {
         'use strict';
         storedThis = this;
       };
@@ -67,8 +67,8 @@ describe('Invocation patterns', function() {
     });
   });
 
-  describe('constructor', function() {
-    test('8 - should understand constructor invocation pattern', function() {
+  describe('constructor', function () {
+    test('8 - should understand constructor invocation pattern', function () {
       const Constructor1 = aFunction;
       const Constructor2 = samurai.aMethod;
       const s1 = new Constructor1();
@@ -80,12 +80,12 @@ describe('Invocation patterns', function() {
       const s4 = new samurai.aMethod();
       expect(storedThis).toBe(__);
     });
-    test('9 - should understand constructor invocation pattern', function() {
-      const Samurai = function(name) {
-        this.getName = function() {
+    test('9 - should understand constructor invocation pattern', function () {
+      const Samurai = function (name) {
+        this.getName = function () {
           return name;
         };
-        this.setName = function(value) {
+        this.setName = function (value) {
           name = value;
         };
       };
@@ -101,12 +101,12 @@ describe('Invocation patterns', function() {
       expect(samurai.name).toBe(__);
       expect(samurai.getName()).toBe(__);
     });
-    test('10 - should understand instanceof', function() {
-      const Samurai = function(name) {
-        this.getName = function() {
+    test('10 - should understand instanceof', function () {
+      const Samurai = function (name) {
+        this.getName = function () {
           return name;
         };
-        this.setName = function(value) {
+        this.setName = function (value) {
           name = value;
         };
       };
@@ -118,10 +118,10 @@ describe('Invocation patterns', function() {
     });
   });
 
-  describe('call/apply', function() {
-    test('11 - should understand call-apply invocation pattern', function() {
+  describe('call/apply', function () {
+    test('11 - should understand call-apply invocation pattern', function () {
       const samurai2 = {
-        aMethod: aFunction
+        aMethod: aFunction,
       };
       const samurai3 = {};
       samurai.aMethod.call(samurai2);
@@ -131,16 +131,16 @@ describe('Invocation patterns', function() {
     });
   });
 
-  describe('fat-arrow functions', function() {
-    test('12 - should understand calling fat-arrow functions as methods', function() {
+  describe('fat-arrow functions', function () {
+    test('12 - should understand calling fat-arrow functions as methods', function () {
       const self = this;
       let storedThis;
       const person = {
         name: 'First',
-        setName: name => {
+        setName: (name) => {
           storedThis = this;
           this.name = name;
-        }
+        },
       };
 
       person.setName('Second');
@@ -149,15 +149,15 @@ describe('Invocation patterns', function() {
       expect(person.name).toBe(__);
       expect(self.name).toBe(__);
     });
-    test('13 - should understand calling fat-arrow functions as functions', function() {
+    test('13 - should understand calling fat-arrow functions as functions', function () {
       const self = this;
       let storedThis;
       const person = {
         name: 'First',
-        setName: name => {
+        setName: (name) => {
           storedThis = this;
           this.name = name;
-        }
+        },
       };
       const setName = person.setName;
 
@@ -167,15 +167,15 @@ describe('Invocation patterns', function() {
       expect(person.name).toBe(__);
       expect(self.name).toBe(__);
     });
-    test('14 - should understand calling fat-arrow functions as constructors', function() {
+    test('14 - should understand calling fat-arrow functions as constructors', function () {
       const self = this;
       let storedThis;
       const person = {
         name: 'First',
-        setName: name => {
+        setName: (name) => {
           storedThis = this;
           this.name = name;
-        }
+        },
       };
       let result;
 
@@ -190,15 +190,15 @@ describe('Invocation patterns', function() {
       expect(person.name).toBe(__);
       expect(self.name).toBe(__);
     });
-    test('15 - should understand calling fat-arrow functions using call/apply', function() {
+    test('15 - should understand calling fat-arrow functions using call/apply', function () {
       const self = this;
       let storedThis;
       const person = {
         name: 'First',
-        setName: name => {
+        setName: (name) => {
           storedThis = this;
           this.name = name;
-        }
+        },
       };
       const anotherPerson = {};
 
@@ -211,7 +211,7 @@ describe('Invocation patterns', function() {
     });
   });
 
-  test('16 - should understand invocation patterns', function() {
+  test('16 - should understand invocation patterns', function () {
     expect(this).toBe(__); //what have you expected to happen here? what happened and why? discuss with your pair!
   });
 });

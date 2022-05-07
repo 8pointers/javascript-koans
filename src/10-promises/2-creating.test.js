@@ -1,10 +1,10 @@
-describe('Creating promises', function() {
-  test('should understand resolve', function(done) {
-    const promise = new Promise(resolve => {
+describe('Creating promises', function () {
+  test('should understand resolve', function (done) {
+    const promise = new Promise((resolve) => {
       resolve({ name: 'Myamoto', age: 32 });
     });
     promise.then(
-      player => {
+      (player) => {
         expect(player).toEqual(__);
         done();
       },
@@ -14,7 +14,7 @@ describe('Creating promises', function() {
     );
   });
 
-  test('should understand reject', function(done) {
+  test('should understand reject', function (done) {
     const promise = new Promise((resolve, reject) => {
       reject(new Error('communicationProblem'));
     });
@@ -22,7 +22,7 @@ describe('Creating promises', function() {
       () => {
         done.fail('This should not be executed');
       },
-      reason => {
+      (reason) => {
         expect(reason).toEqual(__);
         done();
       }

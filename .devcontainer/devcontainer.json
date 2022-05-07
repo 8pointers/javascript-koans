@@ -1,0 +1,46 @@
+{
+  "name": "Advanced JavaScript Workshop Exercises",
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:16-bullseye",
+  "settings": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "jest.enableCodeLens": true,
+    "jest.jestCommandLine": "npm run-script test --",
+    "jest.rootPath": "",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+      "zsh": {
+        "path": "zsh"
+      }
+    },
+    "workbench.colorCustomizations": {
+      "titleBar.activeBackground": "#ffa447",
+      "titleBar.activeForeground": "#000000",
+      "titleBar.inactiveBackground": "#ffa447",
+      "titleBar.inactiveForeground": "#000000"
+    }
+  },
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "Orta.vscode-jest",
+    "WallabyJs.quokka-vscode"
+  ],
+  "containerEnv": {
+    "CHOKIDAR_USEPOLLING": "true"
+  },
+  "forwardPorts": [
+    3000
+  ],
+  "portsAttributes": {
+    "3000": {
+      "label": "Advanced JavaScript Workshop Exercises",
+      "onAutoForward": "notify"
+    }
+  },
+  "remoteUser": "node",
+  "mounts": [
+    "source=advanced-javascript-workshop-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+  "postCreateCommand": "sudo chown node:node node_modules && npm install"
+}

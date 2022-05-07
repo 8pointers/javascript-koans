@@ -1,5 +1,5 @@
-describe('Some ES5 features', function() {
-  test('should understand Object.create', function() {
+describe('Some ES5 features', function () {
+  test('should understand Object.create', function () {
     let numEnumerableProperties = 0;
     const myObject = Object.create(
       {},
@@ -8,8 +8,8 @@ describe('Some ES5 features', function() {
           value: 'Myamoto',
           writable: true,
           enumerable: false,
-          configurable: false
-        }
+          configurable: false,
+        },
       }
     );
     expect(myObject.firstName).toBe(__);
@@ -30,9 +30,9 @@ describe('Some ES5 features', function() {
     }
     expect(myObject.firstName).toBe(__);
   });
-  test('should understand Object.seal', function() {
+  test('should understand Object.seal', function () {
     const samurai = {
-      name: 'Myamoto'
+      name: 'Myamoto',
     };
     Object.seal(samurai);
 
@@ -50,9 +50,9 @@ describe('Some ES5 features', function() {
     }
     expect(samurai.address).toBe(__);
   });
-  test('should understand Object.freeze', function() {
+  test('should understand Object.freeze', function () {
     const samurai = {
-      name: 'Myamoto'
+      name: 'Myamoto',
     };
     Object.freeze(samurai);
 

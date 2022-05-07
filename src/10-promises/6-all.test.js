@@ -4,23 +4,16 @@
 const fetch = require('node-fetch');
 const serve = require('./serve');
 
-describe('Promise.all', function() {
+describe('Promise.all', function () {
   const port = 3006;
   serve(port);
-  const get = url =>
-    fetch(`http://localhost:${port}/${url}`).then(response => response.json());
+  const get = (url) => fetch(`http://localhost:${port}/${url}`).then((response) => response.json());
 
-  test('should understand Promise.all', function() {
-    return Promise.all([
-      get('data/player/1.json'),
-      get('data/player/7.json')
-    ]).then(result => expect(result).toEqual(__));
+  test('should understand Promise.all', function () {
+    return Promise.all([get('data/player/1.json'), get('data/player/7.json')]).then((result) => expect(result).toEqual(__));
   });
 
-  test('should understand how Promise.all deals with rejections', function() {
-    return Promise.all([
-      get('data/player/brake-it.json'),
-      get('data/player/7.json')
-    ]).catch(reason => expect(reason).toEqual(__));
+  test('should understand how Promise.all deals with rejections', function () {
+    return Promise.all([get('data/player/brake-it.json'), get('data/player/7.json')]).catch((reason) => expect(reason).toEqual(__));
   });
 });

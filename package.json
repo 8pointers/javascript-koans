@@ -4,40 +4,41 @@
   "description": "Advanced JavaScript Workshop Exercises",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src",
     "test": "jest",
-    "start": "webpack serve --open",
+    "start": "webpack serve --live-reload --open",
     "build": "webpack"
   },
   "keywords": [],
   "author": "Damjan Vujnovic",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@babel/core": "7.13.16",
-    "@babel/preset-env": "7.13.15",
-    "@babel/preset-react": "7.13.13",
-    "babel-jest": "26.6.3",
-    "babel-loader": "8.2.2",
-    "clean-webpack-plugin": "4.0.0-alpha.0",
-    "css-loader": "5.2.4",
-    "eslint": "7.25.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-prettier": "3.4.0",
-    "eslint-plugin-react": "7.23.2",
-    "html-webpack-plugin": "5.3.1",
-    "jest": "26.6.3",
+    "@babel/core": "7.17.10",
+    "@babel/preset-env": "7.17.10",
+    "@babel/preset-react": "7.16.7",
+    "babel-jest": "28.1.0",
+    "babel-loader": "8.2.5",
+    "clean-webpack-plugin": "4.0.0",
+    "css-loader": "6.7.1",
+    "eslint": "8.15.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.29.4",
+    "html-webpack-plugin": "5.5.0",
+    "jest": "28.1.0",
     "node-fetch": "2.6.1",
-    "prettier": "2.2.1",
-    "serve-static": "1.14.1",
-    "style-loader": "2.0.0",
-    "webpack": "5.35.1",
-    "webpack-cli": "4.6.0",
-    "webpack-dev-server": "3.11.2"
+    "prettier": "2.6.2",
+    "serve-static": "1.15.0",
+    "style-loader": "3.3.1",
+    "webpack": "5.72.0",
+    "webpack-cli": "4.9.2",
+    "webpack-dev-server": "4.9.0"
   },
   "dependencies": {
     "jquery": "3.6.0",
-    "jquery-ui-dist": "1.12.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "jquery-ui-dist": "1.13.1",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
   },
   "babel": {
     "presets": [
@@ -47,14 +48,17 @@
   "eslintConfig": {
     "env": {
       "browser": true,
+      "es6": true,
       "jest": true,
       "node": true
     },
     "extends": [
-      "eslint:recommended"
+      "eslint:recommended",
+      "prettier",
+      "plugin:react/recommended"
     ],
     "parserOptions": {
-      "ecmaVersion": 2018,
+      "ecmaVersion": "latest",
       "ecmaFeatures": {
         "experimentalObjectRestSpread": true,
         "jsx": true,

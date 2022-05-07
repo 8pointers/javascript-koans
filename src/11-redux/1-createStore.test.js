@@ -1,6 +1,6 @@
 import createStore from './1-createStore';
 
-describe('store', function() {
+describe('store', function () {
   const counterReducer = (state = 0, action) => {
     if (action.type === 'INCREMENT') {
       return state + 1;
@@ -23,7 +23,7 @@ describe('store', function() {
     expect(store.getState()).toBe(1);
   });
   test('Should invoke a listener when action is dispatched', () => {
-    const listener = jasmine.createSpy();
+    const listener = jest.createSpy();
     store.subscribe(listener);
 
     store.dispatch({ type: 'INCREMENT' });
@@ -31,7 +31,7 @@ describe('store', function() {
     expect(listener).toHaveBeenCalled();
   });
   test('Should be able to remove the listener', () => {
-    const listener = jasmine.createSpy();
+    const listener = jest.createSpy();
     const unsubscribe = store.subscribe(listener);
     store.dispatch({ type: 'INCREMENT' });
     unsubscribe();

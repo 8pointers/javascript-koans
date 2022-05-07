@@ -1,4 +1,4 @@
-const createStore = function() {
+const createStore = function () {
   //TODO - Implement one test at a time
 };
 

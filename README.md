@@ -1,38 +1,26 @@
 # JavaScript Koans
 
-JavaScript Koans - exercises for my JavaScript workshop.
-
-- Intro (Jest)
-- Objects
-- Functions part 1
-- Arrays
-- Functions part 2
-- Functions part 3
-- OOP
-- Observable
-- Promises
-- Redux
-
 ## Prerequisites
 
+- modern web browser
 - git client
-- NodeJS 16.0.0+ & NPM 7.10.0+
-- Recommended Visual Studio Code extensions:
-  - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-  - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-  - [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)
-  - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- Docker (Docker Desktop on MacOS/Windows)
+- Visual Studio Code with [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed
 
-## How to run it
+## Setup
 
-```bash
-git clone https://github.com/8pointers/JavaScript-Koans.git koans
-cd koans
-npm install
+Clone the repository:
+
+```sh
+git clone https://github.com/8pointers/javascript-koans.git
 ```
 
-To run all the tests from command line:
+Open the `javascript-koans` folder in Visual Studio Code.
 
-```bash
-npm test
+If Visual Studio Code prompts you to reopen the folder in container, accept. Otherwise open Visual Studio Code Command Palette (CMD+SHIFT+P/CTRL+SHIFT+P) and select `Remote-Containers: Rebuild and Reopen in Container`.
+
+Once the container is built and ready, open Visual Studio Code Command Palette and select `View: Toggle Terminal` (CTRL+`) to open a built-in terminal and then run:
+
+```sh
+npm start
 ```

@@ -1,8 +1,7 @@
 import serve from './serve';
 
 describe('Chaining', function () {
-  const port = 3005;
-  serve(port);
+  const port = serve(3005);
   const get = (url) => fetch(`http://localhost:${port}/${url}`).then((response) => response.json());
 
   test('should understand chaining 1', function () {

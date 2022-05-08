@@ -1,8 +1,7 @@
 import serve from './serve';
 
 describe('Promises', function () {
-  const port = 3001;
-  serve(port);
+  const port = serve(3001);
   const get = (url) => fetch(`http://localhost:${port}/${url}`).then((response) => response.json());
 
   test('1 - should understand then', function () {

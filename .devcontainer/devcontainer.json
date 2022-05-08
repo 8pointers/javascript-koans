@@ -4,8 +4,15 @@
   "settings": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
+    "jest.autoRun": {
+      "watch": false,
+      "onSave": "test-file",
+      "onStartup": [
+        "all-tests"
+      ]
+    },
+    "jest.jestCommandLine": "npm test --",
     "jest.enableCodeLens": true,
-    "jest.jestCommandLine": "npm run-script test --",
     "jest.rootPath": "src",
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.profiles.linux": {

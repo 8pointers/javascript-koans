@@ -1,8 +1,7 @@
 import serve from './serve';
 
 describe('Simpler tests using jest', function () {
-  const port = 3003;
-  serve(port);
+  const port = serve(3003);
   const get = (url) => fetch(`http://localhost:${port}/${url}`).then((response) => response.json());
 
   const leaderboardService = {

@@ -1,8 +1,7 @@
 import serve from './serve';
 
 describe('Promises', function () {
-  const port = 3011;
-  serve(port);
+  const port = serve(3011);
   const get = (url) => fetch(`http://localhost:${port}/${url}`).then((response) => response.json());
 
   const getLeaderboard = () => get('data/leaderboard.json');

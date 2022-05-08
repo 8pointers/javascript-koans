@@ -25,9 +25,6 @@
       "titleBar.activeForeground": "#000000",
       "titleBar.inactiveBackground": "#ffa447",
       "titleBar.inactiveForeground": "#000000"
-    },
-    "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
   },
   "extensions": [

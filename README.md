@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- modern web browser
+- evergreen web browser
 - git client
 - Docker (Docker Desktop on MacOS/Windows)
 - Visual Studio Code with [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed
@@ -23,4 +23,18 @@ Once the container is built and ready, open Visual Studio Code Command Palette a
 
 ```sh
 npm start
+```
+
+To run all the tests:
+
+```sh
+npm test
+```
+
+To run a specific test(s):
+
+```sh
+npm test -- src/1-intro/1-game-of-life.test.js
+npm test -- 1-game-of-life
+npm test --  --testNamePattern "should return false when a live cell has more than three live neighbours - overcrowding"
 ```

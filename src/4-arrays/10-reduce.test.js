@@ -35,7 +35,7 @@ describe('Array.prototype.reduce', function () {
     };
     expect([1, 2, 3, 4, 5, 6, 7].myFilter((x) => x % 2)).toEqual([1, 3, 5, 7]);
   });
-  it('6 - should understand Array.prototype methods chaining', function () {
+  test('6 - should understand Array.prototype methods chaining', function () {
     const ngClass = (classes) =>
       Object.entries(classes)
         .filter(([, isOn]) => isOn)

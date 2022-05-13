@@ -18,7 +18,7 @@ describe('Mutator methods', function () {
     expect(array).toEqual(__);
   });
   test('3 - should understand shift', function () {
-    const array = [1, 2, 3, 4, 5];
+    let array = [1, 2, 3, 4, 5];
     expect(array.shift()).toBe(__);
     expect(array).toEqual(__);
     array = [, , , 3, 4, 5];
